@@ -1,0 +1,77 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="78D6BD1F-99CF-85BD-1578-4F67595888AC" name="DONO">
+<createdBy>paulo</createdBy>
+<createdTime>2017-03-21 21:39:56 UTC</createdTime>
+<ownerDesignName>ModeloClinicaVet1</ownerDesignName>
+<ordsAlias>table_2</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="1BB5FEEF-16C0-E22C-EEE5-7A56E690A745">
+<createdBy>paulo</createdBy>
+<createdTime>2017-03-21 21:46:33 UTC</createdTime>
+<ownerDesignName>ModeloClinicaVet1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT027</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CPF" id="C5C3873E-933D-3EBE-69BC-3A71FB2B4841">
+<createdBy>paulo</createdBy>
+<createdTime>2017-03-21 21:46:33 UTC</createdTime>
+<ownerDesignName>ModeloClinicaVet1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT027</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NOME" id="F6D581BA-6FD5-1515-143D-FCC711B6468E">
+<createdBy>paulo</createdBy>
+<createdTime>2017-03-21 21:46:33 UTC</createdTime>
+<ownerDesignName>ModeloClinicaVet1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NASCIMENTO" id="DA2F04D4-E615-C955-C681-62CD66F9C595">
+<createdBy>paulo</createdBy>
+<createdTime>2017-03-21 21:46:33 UTC</createdTime>
+<ownerDesignName>ModeloClinicaVet1</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="0C4F6F8F-1B14-5F11-F963-0748C94A9CA9" name="PESSOA_PK">
+<createdBy>paulo</createdBy>
+<createdTime>2017-03-21 21:46:33 UTC</createdTime>
+<ownerDesignName>ModeloClinicaVet1</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1BB5FEEF-16C0-E22C-EEE5-7A56E690A745"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="6B05F642-7C30-5D1A-ABBF-983E53F0B0B0" name="PESSOA_CPF_UN">
+<createdBy>paulo</createdBy>
+<createdTime>2017-03-21 21:46:43 UTC</createdTime>
+<ownerDesignName>ModeloClinicaVet1</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C5C3873E-933D-3EBE-69BC-3A71FB2B4841"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

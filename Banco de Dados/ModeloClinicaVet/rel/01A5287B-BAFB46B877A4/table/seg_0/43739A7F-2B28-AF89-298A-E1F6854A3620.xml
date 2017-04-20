@@ -1,0 +1,74 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="43739A7F-2B28-AF89-298A-E1F6854A3620" name="ALERGIA_ANIMAL">
+<createdBy>paulo</createdBy>
+<createdTime>2017-03-22 13:47:50 UTC</createdTime>
+<ownerDesignName>ModeloClinicaVet1</ownerDesignName>
+<ordsAlias>table_10</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ANIMAL_ID" id="05BB5F03-E831-80F9-A922-BDD42C1A03A6">
+<createdBy>paulo</createdBy>
+<createdTime>2017-03-22 13:48:07 UTC</createdTime>
+<ownerDesignName>ModeloClinicaVet1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT027</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="040F9844-A687-3B80-5F9D-5CF32BC9C95A" referredColumn="E8DFBD88-4867-2C7B-26D1-405E1E87A52F"/>
+</associations>
+</Column>
+<Column name="ALERGIA_ID" id="598FBFBA-23F4-2FBF-5507-565D9C109A3F">
+<createdBy>paulo</createdBy>
+<createdTime>2017-03-22 13:48:12 UTC</createdTime>
+<ownerDesignName>ModeloClinicaVet1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT027</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="AE8C1455-9123-03E4-1AE6-E3A5BD2BF18F" referredColumn="1B10561F-630D-AF88-7A3F-2D0348A9FDE4"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="C392D36E-6ED8-EB8B-E244-FF3E751381B4" name="ALERGIA_ANIMAL_PK">
+<createdBy>paulo</createdBy>
+<createdTime>2017-03-22 13:48:23 UTC</createdTime>
+<ownerDesignName>ModeloClinicaVet1</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="05BB5F03-E831-80F9-A922-BDD42C1A03A6"/>
+<colUsage columnID="598FBFBA-23F4-2FBF-5507-565D9C109A3F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="BFFF550F-EE8F-5D17-9248-68EBF946CBF6" name="ALERGIA_ANIMAL_ANIMAL_FK">
+<createdBy>paulo</createdBy>
+<createdTime>2017-03-22 13:48:07 UTC</createdTime>
+<ownerDesignName>ModeloClinicaVet1</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="05BB5F03-E831-80F9-A922-BDD42C1A03A6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1D1CE471-F2CD-19C5-AE4C-EF3C4A0DCA8B" name="ALERGIA_ANIMAL_ALERGIA_FK">
+<createdBy>paulo</createdBy>
+<createdTime>2017-03-22 13:48:12 UTC</createdTime>
+<ownerDesignName>ModeloClinicaVet1</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="598FBFBA-23F4-2FBF-5507-565D9C109A3F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

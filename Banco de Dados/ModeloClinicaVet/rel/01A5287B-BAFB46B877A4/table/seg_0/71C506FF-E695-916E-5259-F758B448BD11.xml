@@ -1,0 +1,97 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="71C506FF-E695-916E-5259-F758B448BD11" name="VACINA_ANIMAL">
+<createdBy>paulo</createdBy>
+<createdTime>2017-03-22 13:42:30 UTC</createdTime>
+<ownerDesignName>ModeloClinicaVet1</ownerDesignName>
+<ordsAlias>table_6</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ANIMAL_ID" id="CE0BFB8F-828B-A8CC-96DA-C9B1A37AFE55">
+<createdBy>paulo</createdBy>
+<createdTime>2017-03-22 13:42:41 UTC</createdTime>
+<ownerDesignName>ModeloClinicaVet1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT027</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="0C6B67FA-234A-0EF5-490F-1F2ACA7E1874" referredColumn="E8DFBD88-4867-2C7B-26D1-405E1E87A52F"/>
+</associations>
+</Column>
+<Column name="VACINA_ID" id="57112466-1D64-07D7-6214-4D5947AF9E7A">
+<createdBy>paulo</createdBy>
+<createdTime>2017-03-22 13:42:48 UTC</createdTime>
+<ownerDesignName>ModeloClinicaVet1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT027</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="499531A5-6A27-8B6C-250A-EEDB10175591" referredColumn="B6B09AEE-D0F0-C586-AE92-79108469609F"/>
+</associations>
+</Column>
+<Column name="DATAVACINACAO" id="571BBBE0-18F5-D2D1-9C47-7C09693C05E5">
+<createdBy>paulo</createdBy>
+<createdTime>2017-03-22 13:43:44 UTC</createdTime>
+<ownerDesignName>ModeloClinicaVet1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DESCRICAOVETERINARIO" id="1128B062-2C67-A7C0-0A63-6F29A6879DD9">
+<createdBy>paulo</createdBy>
+<createdTime>2017-03-22 13:43:44 UTC</createdTime>
+<ownerDesignName>ModeloClinicaVet1</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="A030F2AB-6511-1BBE-D245-A05A69B8B185" name="VACINA_ANIMAL_PK">
+<createdBy>paulo</createdBy>
+<createdTime>2017-03-22 13:43:44 UTC</createdTime>
+<ownerDesignName>ModeloClinicaVet1</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CE0BFB8F-828B-A8CC-96DA-C9B1A37AFE55"/>
+<colUsage columnID="57112466-1D64-07D7-6214-4D5947AF9E7A"/>
+<colUsage columnID="571BBBE0-18F5-D2D1-9C47-7C09693C05E5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E73D2350-1587-47B9-DE6A-449ACCC01FD2" name="VACINA_ANIMAL_ANIMAL_FK">
+<createdBy>paulo</createdBy>
+<createdTime>2017-03-22 13:42:41 UTC</createdTime>
+<ownerDesignName>ModeloClinicaVet1</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CE0BFB8F-828B-A8CC-96DA-C9B1A37AFE55"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3A42694B-071C-02CE-7CBF-4E45B7B0FCC7" name="VACINA_ANIMAL_VACINA_FK">
+<createdBy>paulo</createdBy>
+<createdTime>2017-03-22 13:42:48 UTC</createdTime>
+<ownerDesignName>ModeloClinicaVet1</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="57112466-1D64-07D7-6214-4D5947AF9E7A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

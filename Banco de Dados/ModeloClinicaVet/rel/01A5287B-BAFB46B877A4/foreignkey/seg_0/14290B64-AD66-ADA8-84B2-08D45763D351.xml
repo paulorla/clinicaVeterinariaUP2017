@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="14290B64-AD66-ADA8-84B2-08D45763D351" containerWithKeyObject="0D137D1B-6669-0FCE-5B69-95A6B409928B" localFKIndex="D55C1715-AC5F-52A0-BB9D-3DB0ED0FA37C" name="ENDERECO_PESSOA_FK">
+<createdBy>paulo</createdBy>
+<createdTime>2017-03-22 13:38:36 UTC</createdTime>
+<ownerDesignName>ModeloClinicaVet1</ownerDesignName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>78D6BD1F-99CF-85BD-1578-4F67595888AC</referredTableID>
+<keyObject>0C4F6F8F-1B14-5F11-F963-0748C94A9CA9</keyObject>
+<referredKeyID>0C4F6F8F-1B14-5F11-F963-0748C94A9CA9</referredKeyID>
+<mandatory>true</mandatory>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

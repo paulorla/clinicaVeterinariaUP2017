@@ -1,0 +1,58 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="4232EFE8-9363-2FB0-E746-E59876839951" name="VACINA">
+<createdBy>paulo</createdBy>
+<createdTime>2017-03-22 13:41:02 UTC</createdTime>
+<ownerDesignName>ModeloClinicaVet1</ownerDesignName>
+<ordsAlias>table_5</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="B6B09AEE-D0F0-C586-AE92-79108469609F">
+<createdBy>paulo</createdBy>
+<createdTime>2017-03-22 13:42:17 UTC</createdTime>
+<ownerDesignName>ModeloClinicaVet1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT027</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NOME" id="36AA36FA-7359-CF5D-A879-CF84B4335F5F">
+<createdBy>paulo</createdBy>
+<createdTime>2017-03-22 13:42:17 UTC</createdTime>
+<ownerDesignName>ModeloClinicaVet1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DESCRICAO" id="2858EBF9-F83E-7FAE-2107-2B44440D2944">
+<createdBy>paulo</createdBy>
+<createdTime>2017-03-22 13:42:17 UTC</createdTime>
+<ownerDesignName>ModeloClinicaVet1</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="A70AAB0C-1F34-0949-D591-34CDFDECFBCC" name="VACINA_PK">
+<createdBy>paulo</createdBy>
+<createdTime>2017-03-22 13:42:17 UTC</createdTime>
+<ownerDesignName>ModeloClinicaVet1</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B6B09AEE-D0F0-C586-AE92-79108469609F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

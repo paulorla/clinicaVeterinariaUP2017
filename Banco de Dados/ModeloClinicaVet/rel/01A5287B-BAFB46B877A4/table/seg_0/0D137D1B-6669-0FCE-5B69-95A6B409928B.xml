@@ -1,0 +1,104 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="0D137D1B-6669-0FCE-5B69-95A6B409928B" name="ENDERECO">
+<createdBy>paulo</createdBy>
+<createdTime>2017-03-22 13:36:35 UTC</createdTime>
+<ownerDesignName>ModeloClinicaVet1</ownerDesignName>
+<ordsAlias>table_3</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="DONO_ID" id="9D6E8C42-5456-2FE0-482F-B8D91F0F6DD2">
+<createdBy>paulo</createdBy>
+<createdTime>2017-03-22 13:38:36 UTC</createdTime>
+<ownerDesignName>ModeloClinicaVet1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT027</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="14290B64-AD66-ADA8-84B2-08D45763D351" referredColumn="1BB5FEEF-16C0-E22C-EEE5-7A56E690A745"/>
+</associations>
+</Column>
+<Column name="LOGRADOURO" id="EC74BBC9-9356-A38E-BCCE-BF816590FC25">
+<createdBy>paulo</createdBy>
+<createdTime>2017-03-22 13:38:25 UTC</createdTime>
+<ownerDesignName>ModeloClinicaVet1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BAIRRO" id="A3E381F9-E9F8-6570-6411-CFBB0E99A843">
+<createdBy>paulo</createdBy>
+<createdTime>2017-03-22 13:38:25 UTC</createdTime>
+<ownerDesignName>ModeloClinicaVet1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NUMERO" id="53430F9E-AC2B-F5BC-E3D5-2240E4336EAA">
+<createdBy>paulo</createdBy>
+<createdTime>2017-03-22 13:38:25 UTC</createdTime>
+<ownerDesignName>ModeloClinicaVet1</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CIDADE" id="2BB3422A-84B6-53B7-9B9B-3DA4691F1583">
+<createdBy>paulo</createdBy>
+<createdTime>2017-03-22 13:38:25 UTC</createdTime>
+<ownerDesignName>ModeloClinicaVet1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CEP" id="6B26A11C-FEC3-3433-B81C-46597356C8B7">
+<createdBy>paulo</createdBy>
+<createdTime>2017-03-22 13:38:25 UTC</createdTime>
+<ownerDesignName>ModeloClinicaVet1</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="258D5A43-BCEB-C9D1-6271-5D595D0F2587" name="ENDERECO_PK">
+<createdBy>paulo</createdBy>
+<createdTime>2017-03-22 13:39:06 UTC</createdTime>
+<ownerDesignName>ModeloClinicaVet1</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9D6E8C42-5456-2FE0-482F-B8D91F0F6DD2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D55C1715-AC5F-52A0-BB9D-3DB0ED0FA37C" name="ENDERECO_PESSOA_FK">
+<createdBy>paulo</createdBy>
+<createdTime>2017-03-22 13:38:36 UTC</createdTime>
+<ownerDesignName>ModeloClinicaVet1</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9D6E8C42-5456-2FE0-482F-B8D91F0F6DD2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
