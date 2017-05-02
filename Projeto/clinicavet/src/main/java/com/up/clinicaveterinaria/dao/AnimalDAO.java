@@ -7,32 +7,32 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.up.clinicaveterinaria.jdbc.ConnectionFactory;
-import com.up.clinicaveterinaria.model.Dono;
+import com.up.clinicaveterinaria.model.Animal;
 
-public class DonoDAO implements IGenericDAO<Dono, Long>{
-	
+public class AnimalDAO implements IGenericDAO<Animal, Long>{
+
 	private ConnectionFactory connectionFactory = new ConnectionFactory();
 	
-	public List<Dono> listar() throws Exception{
-		List<Dono> retorno = new ArrayList<Dono>();
+	@Override
+	public List<Animal> listar() throws Exception {
+		List<Animal> retorno = new ArrayList<Animal>();
 		Connection con=null;
 		PreparedStatement statement = null;
 		ResultSet resultSet = null;
 		Exception exp = null;
 		try{
 			con = connectionFactory.getConnection();
-			String sql = "SELECT id,cpf,nome,nascimento FROM DONO";
+			String sql = "SELECT id,nome,nascimento FROM ANIMAL";
 			statement = con.prepareStatement(sql);
 			resultSet = statement.executeQuery();
 			while(resultSet.next()){
-				Dono d = new Dono();
+				Animal a = new Animal();
 				
-				d.setId(resultSet.getLong("id"));
-				d.setCpf(resultSet.getLong("cpf"));
-				d.setNome(resultSet.getString("nome"));
-				d.setNascimento(resultSet.getDate("nascimento"));
+				a.setId(resultSet.getLong("id"));
+				a.setNome(resultSet.getString("nome"));
+				a.setNascimento(resultSet.getDate("nascimento"));
 				
-				retorno.add(d);
+				retorno.add(a);
 			}
 			return retorno;
 		}catch(Exception e){
@@ -64,23 +64,22 @@ public class DonoDAO implements IGenericDAO<Dono, Long>{
 	}
 
 	@Override
-	public Dono find(Long id) throws Exception {
-		Dono retorno = null;
+	public Animal find(Long id) throws Exception {
+		Animal retorno = null;
 		Connection con=null;
 		PreparedStatement statement = null;
 		ResultSet resultSet = null;
 		Exception exp = null;
 		try{
 			con = connectionFactory.getConnection();
-			String sql = "SELECT cpf,nome,nascimento FROM DONO where id=?";
+			String sql = "SELECT nome,nascimento FROM ANIMAL where id=?";
 			statement = con.prepareStatement(sql);
 			statement.setLong(1, id);
 			resultSet = statement.executeQuery();
-			if(resultSet.next()){
-				retorno = new Dono();
+			while(resultSet.next()){
+				retorno = new Animal();
 				
 				retorno.setId(id);
-				retorno.setCpf(resultSet.getLong("cpf"));
 				retorno.setNome(resultSet.getString("nome"));
 				retorno.setNascimento(resultSet.getDate("nascimento"));
 			}
@@ -112,4 +111,5 @@ public class DonoDAO implements IGenericDAO<Dono, Long>{
 		}
 		throw exp;//lançando somente a última exceção gerada para simplificar!
 	}
+
 }

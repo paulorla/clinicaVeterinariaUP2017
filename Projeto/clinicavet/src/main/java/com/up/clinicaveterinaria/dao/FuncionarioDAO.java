@@ -7,32 +7,34 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.up.clinicaveterinaria.jdbc.ConnectionFactory;
-import com.up.clinicaveterinaria.model.Dono;
+import com.up.clinicaveterinaria.model.Funcionario;
 
-public class DonoDAO implements IGenericDAO<Dono, Long>{
-	
+public class FuncionarioDAO implements IGenericDAO<Funcionario, Long>{
+
 	private ConnectionFactory connectionFactory = new ConnectionFactory();
 	
-	public List<Dono> listar() throws Exception{
-		List<Dono> retorno = new ArrayList<Dono>();
+	@Override
+	public List<Funcionario> listar() throws Exception {
+		List<Funcionario> retorno = new ArrayList<Funcionario>();
 		Connection con=null;
 		PreparedStatement statement = null;
 		ResultSet resultSet = null;
 		Exception exp = null;
 		try{
 			con = connectionFactory.getConnection();
-			String sql = "SELECT id,cpf,nome,nascimento FROM DONO";
+			String sql = "SELECT id,nome,cpf,nascimento,dataadmissao FROM FUNCIONARIO";
 			statement = con.prepareStatement(sql);
 			resultSet = statement.executeQuery();
 			while(resultSet.next()){
-				Dono d = new Dono();
+				Funcionario f = new Funcionario();
 				
-				d.setId(resultSet.getLong("id"));
-				d.setCpf(resultSet.getLong("cpf"));
-				d.setNome(resultSet.getString("nome"));
-				d.setNascimento(resultSet.getDate("nascimento"));
+				f.setId(resultSet.getLong("id"));
+				f.setNome(resultSet.getString("nome"));
+				f.setCpf(resultSet.getLong("cpf"));
+				f.setNascimento(resultSet.getDate("nascimento"));
+				f.setDataAdmissao(resultSet.getDate("dataadmissao"));
 				
-				retorno.add(d);
+				retorno.add(f);
 			}
 			return retorno;
 		}catch(Exception e){
@@ -64,25 +66,26 @@ public class DonoDAO implements IGenericDAO<Dono, Long>{
 	}
 
 	@Override
-	public Dono find(Long id) throws Exception {
-		Dono retorno = null;
+	public Funcionario find(Long id) throws Exception {
+		Funcionario retorno = null;
 		Connection con=null;
 		PreparedStatement statement = null;
 		ResultSet resultSet = null;
 		Exception exp = null;
 		try{
 			con = connectionFactory.getConnection();
-			String sql = "SELECT cpf,nome,nascimento FROM DONO where id=?";
+			String sql = "SELECT nome,cpf,nascimento,dataadmissao FROM FUNCIONARIO WHERE id=?";
 			statement = con.prepareStatement(sql);
 			statement.setLong(1, id);
 			resultSet = statement.executeQuery();
-			if(resultSet.next()){
-				retorno = new Dono();
+			while(resultSet.next()){
+				retorno = new Funcionario();
 				
 				retorno.setId(id);
-				retorno.setCpf(resultSet.getLong("cpf"));
 				retorno.setNome(resultSet.getString("nome"));
+				retorno.setCpf(resultSet.getLong("cpf"));
 				retorno.setNascimento(resultSet.getDate("nascimento"));
+				retorno.setDataAdmissao(resultSet.getDate("dataadmissao"));
 			}
 			return retorno;
 		}catch(Exception e){
@@ -112,4 +115,5 @@ public class DonoDAO implements IGenericDAO<Dono, Long>{
 		}
 		throw exp;//lançando somente a última exceção gerada para simplificar!
 	}
+
 }

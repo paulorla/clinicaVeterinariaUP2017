@@ -7,32 +7,32 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.up.clinicaveterinaria.jdbc.ConnectionFactory;
-import com.up.clinicaveterinaria.model.Dono;
+import com.up.clinicaveterinaria.model.Alergia;
 
-public class DonoDAO implements IGenericDAO<Dono, Long>{
-	
+public class AlergiaDAO implements IGenericDAO<Alergia, Long>{
+
 	private ConnectionFactory connectionFactory = new ConnectionFactory();
 	
-	public List<Dono> listar() throws Exception{
-		List<Dono> retorno = new ArrayList<Dono>();
+	@Override
+	public List<Alergia> listar() throws Exception {
+		List<Alergia> retorno = new ArrayList<Alergia>();
 		Connection con=null;
 		PreparedStatement statement = null;
 		ResultSet resultSet = null;
 		Exception exp = null;
 		try{
 			con = connectionFactory.getConnection();
-			String sql = "SELECT id,cpf,nome,nascimento FROM DONO";
+			String sql = "SELECT id,nomealergia,descricao FROM ALERGIA";
 			statement = con.prepareStatement(sql);
 			resultSet = statement.executeQuery();
 			while(resultSet.next()){
-				Dono d = new Dono();
+				Alergia a = new Alergia();
 				
-				d.setId(resultSet.getLong("id"));
-				d.setCpf(resultSet.getLong("cpf"));
-				d.setNome(resultSet.getString("nome"));
-				d.setNascimento(resultSet.getDate("nascimento"));
+				a.setId(resultSet.getLong("id"));
+				a.setNomeAlergia(resultSet.getString("nomealergia"));
+				a.setDescricao(resultSet.getString("descricao"));
 				
-				retorno.add(d);
+				retorno.add(a);
 			}
 			return retorno;
 		}catch(Exception e){
@@ -64,25 +64,24 @@ public class DonoDAO implements IGenericDAO<Dono, Long>{
 	}
 
 	@Override
-	public Dono find(Long id) throws Exception {
-		Dono retorno = null;
+	public Alergia find(Long id) throws Exception {
+		Alergia retorno = null;
 		Connection con=null;
 		PreparedStatement statement = null;
 		ResultSet resultSet = null;
 		Exception exp = null;
 		try{
 			con = connectionFactory.getConnection();
-			String sql = "SELECT cpf,nome,nascimento FROM DONO where id=?";
+			String sql = "SELECT nomealergia,descricao FROM ALERGIA where id=?";
 			statement = con.prepareStatement(sql);
 			statement.setLong(1, id);
 			resultSet = statement.executeQuery();
 			if(resultSet.next()){
-				retorno = new Dono();
+				retorno = new Alergia();
 				
 				retorno.setId(id);
-				retorno.setCpf(resultSet.getLong("cpf"));
-				retorno.setNome(resultSet.getString("nome"));
-				retorno.setNascimento(resultSet.getDate("nascimento"));
+				retorno.setNomeAlergia(resultSet.getString("nomealergia"));
+				retorno.setDescricao(resultSet.getString("descricao"));
 			}
 			return retorno;
 		}catch(Exception e){
@@ -112,4 +111,5 @@ public class DonoDAO implements IGenericDAO<Dono, Long>{
 		}
 		throw exp;//lançando somente a última exceção gerada para simplificar!
 	}
+
 }
