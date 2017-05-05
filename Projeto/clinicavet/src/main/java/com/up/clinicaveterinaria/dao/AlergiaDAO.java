@@ -64,7 +64,7 @@ public class AlergiaDAO implements IGenericDAO<Alergia, Long>{
 	}
 
 	@Override
-	public Alergia find(Long id) throws Exception {
+	public Alergia buscar(Long id) throws Exception {
 		Alergia retorno = null;
 		Connection con=null;
 		PreparedStatement statement = null;
@@ -110,6 +110,24 @@ public class AlergiaDAO implements IGenericDAO<Alergia, Long>{
 			}
 		}
 		throw exp;//lançando somente a última exceção gerada para simplificar!
+	}
+
+	@Override
+	public void persistir(Alergia objeto) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void remover(Long id) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void atualizar(Alergia objeto) throws Exception {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

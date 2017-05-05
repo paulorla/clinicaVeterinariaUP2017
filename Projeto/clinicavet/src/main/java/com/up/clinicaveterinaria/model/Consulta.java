@@ -6,36 +6,42 @@ import com.up.clinicaveterinaria.constants.Constants;
 import com.up.clinicaveterinaria.exception.AssociacaoInvalidaException;
 
 public class Consulta {
-	private Animal animal;
-	private Date dataHoraConsulta;
+	
+	private ConsultaId consultaId;
 	private Funcionario veterinario;
 	private Funcionario responsavelAgendamento;
 	
+	public Consulta(){
+		consultaId = new ConsultaId();
+	}
+	
 	public Animal getAnimal() {
-		return animal;
+		return consultaId.getAnimal();
 	}
-	
+
 	public void setAnimal(Animal animal) {
-		this.animal = animal;
+		consultaId.setAnimal(animal);
 	}
-	
+
 	public Date getDataHoraConsulta() {
-		return dataHoraConsulta;
+		return consultaId.getDataHoraConsulta();
 	}
-	
+
 	public void setDataHoraConsulta(Date dataHoraConsulta) {
-		this.dataHoraConsulta = dataHoraConsulta;
+		consultaId.setDataHoraConsulta(dataHoraConsulta);
 	}
-	
+
 	public Funcionario getVeterinario() {
 		return veterinario;
 	}
 	
 	public void setVeterinario(Funcionario veterinario) throws AssociacaoInvalidaException {
-		if(veterinario == null || veterinario.getTipoFuncionario().equals(Constants.CODIGO_TIPO_FUNCIONARIO_VETERINARIO))
-			this.veterinario = veterinario;
-		else
+		if(veterinario != null && veterinario.getTipoFuncionario() != null && 
+				!veterinario.getTipoFuncionario()
+					.equals(Constants.CODIGO_TIPO_FUNCIONARIO_VETERINARIO))
 			throw new AssociacaoInvalidaException(this, veterinario);
+		else
+			this.veterinario = veterinario;
 	}
 	
 	public Funcionario getResponsavelAgendamento() {
@@ -50,8 +56,7 @@ public class Consulta {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((animal == null) ? 0 : animal.hashCode());
-		result = prime * result + ((dataHoraConsulta == null) ? 0 : dataHoraConsulta.hashCode());
+		result = prime * result + ((consultaId == null) ? 0 : consultaId.hashCode());
 		return result;
 	}
 
@@ -64,15 +69,10 @@ public class Consulta {
 		if (getClass() != obj.getClass())
 			return false;
 		Consulta other = (Consulta) obj;
-		if (animal == null) {
-			if (other.animal != null)
+		if (consultaId == null) {
+			if (other.consultaId != null)
 				return false;
-		} else if (!animal.equals(other.animal))
-			return false;
-		if (dataHoraConsulta == null) {
-			if (other.dataHoraConsulta != null)
-				return false;
-		} else if (!dataHoraConsulta.equals(other.dataHoraConsulta))
+		} else if (!consultaId.equals(other.consultaId))
 			return false;
 		return true;
 	}

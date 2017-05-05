@@ -66,7 +66,7 @@ public class FuncionarioDAO implements IGenericDAO<Funcionario, Long>{
 	}
 
 	@Override
-	public Funcionario find(Long id) throws Exception {
+	public Funcionario buscar(Long id) throws Exception {
 		Funcionario retorno = null;
 		Connection con=null;
 		PreparedStatement statement = null;
@@ -114,6 +114,24 @@ public class FuncionarioDAO implements IGenericDAO<Funcionario, Long>{
 			}
 		}
 		throw exp;//lançando somente a última exceção gerada para simplificar!
+	}
+
+	@Override
+	public void persistir(Funcionario objeto) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void remover(Long id) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void atualizar(Funcionario objeto) throws Exception {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

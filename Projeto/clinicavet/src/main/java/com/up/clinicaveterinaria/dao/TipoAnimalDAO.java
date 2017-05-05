@@ -64,7 +64,7 @@ public class TipoAnimalDAO implements IGenericDAO<TipoAnimal, String>{
 	}
 
 	@Override
-	public TipoAnimal find(String id) throws Exception {
+	public TipoAnimal buscar(String id) throws Exception {
 		TipoAnimal retorno = null;
 		Connection con=null;
 		PreparedStatement statement = null;
@@ -110,6 +110,24 @@ public class TipoAnimalDAO implements IGenericDAO<TipoAnimal, String>{
 			}
 		}
 		throw exp;//lançando somente a última exceção gerada para simplificar!
+	}
+
+	@Override
+	public void persistir(TipoAnimal objeto) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void remover(String id) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void atualizar(TipoAnimal objeto) throws Exception {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

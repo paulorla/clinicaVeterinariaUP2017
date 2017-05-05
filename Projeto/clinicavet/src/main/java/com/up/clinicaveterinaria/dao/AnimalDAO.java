@@ -64,7 +64,7 @@ public class AnimalDAO implements IGenericDAO<Animal, Long>{
 	}
 
 	@Override
-	public Animal find(Long id) throws Exception {
+	public Animal buscar(Long id) throws Exception {
 		Animal retorno = null;
 		Connection con=null;
 		PreparedStatement statement = null;
@@ -110,6 +110,24 @@ public class AnimalDAO implements IGenericDAO<Animal, Long>{
 			}
 		}
 		throw exp;//lançando somente a última exceção gerada para simplificar!
+	}
+
+	@Override
+	public void persistir(Animal objeto) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void remover(Long id) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void atualizar(Animal objeto) throws Exception {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
