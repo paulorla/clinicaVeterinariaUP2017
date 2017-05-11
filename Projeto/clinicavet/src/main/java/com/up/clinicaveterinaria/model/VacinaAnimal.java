@@ -3,35 +3,42 @@ package com.up.clinicaveterinaria.model;
 import java.util.Date;
 
 public class VacinaAnimal {
-	private Animal animal;
-	private Vacina vacina;
-	private Date dataVacinacao;
+	
+	private VacinaAnimalID vacinaAnimalID;
 	private String descricaoVeterinario;
 	
+	public VacinaAnimalID getVacinaAnimalID() {
+		return vacinaAnimalID;
+	}
+
+	public void setVacinaAnimalID(VacinaAnimalID vacinaAnimalID) {
+		this.vacinaAnimalID = vacinaAnimalID;
+	}
+	
 	public Animal getAnimal() {
-		return animal;
+		return vacinaAnimalID.getAnimal();
 	}
-	
+
 	public void setAnimal(Animal animal) {
-		this.animal = animal;
+		vacinaAnimalID.setAnimal(animal);
 	}
-	
+
 	public Vacina getVacina() {
-		return vacina;
+		return vacinaAnimalID.getVacina();
 	}
-	
+
 	public void setVacina(Vacina vacina) {
-		this.vacina = vacina;
+		vacinaAnimalID.setVacina(vacina);
 	}
-	
+
 	public Date getDataVacinacao() {
-		return dataVacinacao;
+		return vacinaAnimalID.getDataVacinacao();
 	}
-	
+
 	public void setDataVacinacao(Date dataVacinacao) {
-		this.dataVacinacao = dataVacinacao;
+		vacinaAnimalID.setDataVacinacao(dataVacinacao);
 	}
-	
+
 	public String getDescricaoVeterinario() {
 		return descricaoVeterinario;
 	}
@@ -44,9 +51,7 @@ public class VacinaAnimal {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((animal == null) ? 0 : animal.hashCode());
-		result = prime * result + ((dataVacinacao == null) ? 0 : dataVacinacao.hashCode());
-		result = prime * result + ((vacina == null) ? 0 : vacina.hashCode());
+		result = prime * result + ((vacinaAnimalID == null) ? 0 : vacinaAnimalID.hashCode());
 		return result;
 	}
 
@@ -59,21 +64,12 @@ public class VacinaAnimal {
 		if (getClass() != obj.getClass())
 			return false;
 		VacinaAnimal other = (VacinaAnimal) obj;
-		if (animal == null) {
-			if (other.animal != null)
+		if (vacinaAnimalID == null) {
+			if (other.vacinaAnimalID != null)
 				return false;
-		} else if (!animal.equals(other.animal))
-			return false;
-		if (dataVacinacao == null) {
-			if (other.dataVacinacao != null)
-				return false;
-		} else if (!dataVacinacao.equals(other.dataVacinacao))
-			return false;
-		if (vacina == null) {
-			if (other.vacina != null)
-				return false;
-		} else if (!vacina.equals(other.vacina))
+		} else if (!vacinaAnimalID.equals(other.vacinaAnimalID))
 			return false;
 		return true;
 	}
+	
 }

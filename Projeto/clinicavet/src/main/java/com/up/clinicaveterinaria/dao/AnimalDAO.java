@@ -8,6 +8,7 @@ import java.util.List;
 
 import com.up.clinicaveterinaria.jdbc.ConnectionFactory;
 import com.up.clinicaveterinaria.model.Animal;
+import com.up.clinicaveterinaria.model.Dono;
 
 public class AnimalDAO implements IGenericDAO<Animal, Long>{
 

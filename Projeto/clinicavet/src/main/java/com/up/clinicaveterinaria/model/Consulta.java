@@ -15,6 +15,14 @@ public class Consulta {
 		consultaId = new ConsultaId();
 	}
 	
+	public ConsultaId getConsultaId() {
+		return consultaId;
+	}
+
+	public void setConsultaId(ConsultaId consultaId) {
+		this.consultaId = consultaId;
+	}
+
 	public Animal getAnimal() {
 		return consultaId.getAnimal();
 	}
