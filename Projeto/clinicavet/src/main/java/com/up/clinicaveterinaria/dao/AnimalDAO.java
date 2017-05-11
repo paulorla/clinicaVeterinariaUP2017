@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.up.clinicaveterinaria.jdbc.ConnectionFactory;
+import com.up.clinicaveterinaria.model.Alergia;
 import com.up.clinicaveterinaria.model.Animal;
 import com.up.clinicaveterinaria.model.Dono;
 import com.up.clinicaveterinaria.model.Especie;
@@ -124,10 +125,13 @@ public class AnimalDAO implements IGenericDAO<Animal, Long>{
 			con = connectionFactory.getConnection();
 			String sql = "SELECT a.nome as nomeanimal, a.nascimento as nascimentoanimal, "
 					+ "e.id as idespecie, e.nome as nomeespecie, e.descricao as descricaoespecie, "
-					+ "d.id as iddono, d.cpf, d.nome as nomedono,d.nascimento as nascimentodono "
+					+ "d.id as iddono, d.cpf, d.nome as nomedono,d.nascimento as nascimentodono, "
+					+ "al.id as idalergia, al.nomealergia, al.descricao as descricaoalergia "
 					+ "FROM ANIMAL a "
 					+ "INNER JOIN especie e on (a.especie_id = e.id) "
 					+ "INNER JOIN dono d on (a.dono_id = d.id) "
+					+ "LEFT JOIN alergia_animal aa on (aa.animal_id = a.id) "
+					+ "LEFT JOIN alergia al on (al.id = aa.alergia_id) "
 					+ "where id=?";
 			statement = con.prepareStatement(sql);
 			statement.setLong(1, id);
@@ -151,6 +155,20 @@ public class AnimalDAO implements IGenericDAO<Animal, Long>{
 				d.setNome(resultSet.getString("nomedono"));
 				d.setNascimento(resultSet.getDate("nascimentodono"));
 				retorno.setDono(d);
+				
+				List<Alergia> alergias = new ArrayList<Alergia>();
+				
+				Long idAlergia = resultSet.getLong("idalergia");
+				if(!resultSet.wasNull()){
+					do{
+						Alergia al = new Alergia();
+						al.setId(idAlergia);
+						al.setNomeAlergia(resultSet.getString("nomealergia"));
+						al.setDescricao(resultSet.getString("descricaoalergia"));
+						alergias.add(al);
+					}while(resultSet.next());
+				}
+				retorno.setAlergias(alergias);
 			}
 			return retorno;
 		}catch(Exception e){

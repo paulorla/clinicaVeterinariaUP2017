@@ -1,6 +1,7 @@
 package com.up.clinicaveterinaria;
 
 import com.up.clinicaveterinaria.dao.AnimalDAO;
+import com.up.clinicaveterinaria.model.Alergia;
 import com.up.clinicaveterinaria.model.Animal;
 
 public class Main {
@@ -11,6 +12,10 @@ public class Main {
 			
 			System.out.println(animal.getNome() + "\t" + animal.getEspecie().getNome()
 					+ "\t" + animal.getDono().getNome());
+			
+			for(Alergia al : animal.getAlergias()){
+				System.out.println(al.getNomeAlergia());
+			}
 			
 			
 		}catch(Exception e){
