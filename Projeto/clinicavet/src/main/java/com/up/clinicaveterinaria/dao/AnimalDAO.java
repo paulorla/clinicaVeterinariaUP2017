@@ -8,6 +8,7 @@ import java.util.List;
 
 import com.up.clinicaveterinaria.jdbc.ConnectionFactory;
 import com.up.clinicaveterinaria.model.Animal;
+import com.up.clinicaveterinaria.model.Dono;
 import com.up.clinicaveterinaria.model.Especie;
 
 public class AnimalDAO implements IGenericDAO<Animal, Long>{
@@ -121,12 +122,12 @@ public class AnimalDAO implements IGenericDAO<Animal, Long>{
 		Exception exp = null;
 		try{
 			con = connectionFactory.getConnection();
-			String sql = "SELECT a.nome as nomeanimal, "
-					+ "a.nascimento as nascimentoanimal, "
-					+ "e.id as idespecie, e.nome as nomeespecie, "
-					+ "e.descricao as descricaoespecie "
+			String sql = "SELECT a.nome as nomeanimal, a.nascimento as nascimentoanimal, "
+					+ "e.id as idespecie, e.nome as nomeespecie, e.descricao as descricaoespecie, "
+					+ "d.id as iddono, d.cpf, d.nome as nomedono,d.nascimento as nascimentodono "
 					+ "FROM ANIMAL a "
 					+ "INNER JOIN especie e on (a.especie_id = e.id) "
+					+ "INNER JOIN dono d on (a.dono_id = d.id) "
 					+ "where id=?";
 			statement = con.prepareStatement(sql);
 			statement.setLong(1, id);
@@ -143,6 +144,13 @@ public class AnimalDAO implements IGenericDAO<Animal, Long>{
 				e.setNome(resultSet.getString("nomeespecie"));
 				e.setDescricao("descricaoespecie");
 				retorno.setEspecie(e);
+				
+				Dono d = new Dono();
+				d.setId(resultSet.getLong("iddono"));
+				d.setCpf(resultSet.getLong("cpf"));
+				d.setNome(resultSet.getString("nomedono"));
+				d.setNascimento(resultSet.getDate("nascimentodono"));
+				retorno.setDono(d);
 			}
 			return retorno;
 		}catch(Exception e){
