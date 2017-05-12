@@ -1,6 +1,7 @@
 package com.up.clinicaveterinaria.model;
 
 import java.util.Date;
+import java.util.List;
 
 public class Dono {
 	private Long id;
@@ -8,11 +9,24 @@ public class Dono {
 	private String nome;
 	private Date nascimento;
 	private Endereco endereco;
+	private List<Animal> animais;
 	
 	public Long getId() {
 		return id;
 	}
 	
+	public List<Animal> getAnimais() {
+		return animais;
+	}
+
+
+
+	public void setAnimais(List<Animal> animais) {
+		this.animais = animais;
+	}
+
+
+
 	public void setId(Long id) {
 		this.id = id;
 	}

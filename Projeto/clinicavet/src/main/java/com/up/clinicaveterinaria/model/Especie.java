@@ -1,11 +1,14 @@
 package com.up.clinicaveterinaria.model;
 
+import java.util.List;
+
 public class Especie {
 	
 	private Long id;
 	private String nome;
 	private String descricao;
 	private TipoAnimal tipoAnimal;
+	private List<Animal> animaisEspecie;
 	
 	public Long getId() {
 		return id;
@@ -19,6 +22,14 @@ public class Especie {
 		return nome;
 	}
 	
+	public List<Animal> getAnimaisEspecie() {
+		return animaisEspecie;
+	}
+
+	public void setAnimaisEspecie(List<Animal> animaisEspecie) {
+		this.animaisEspecie = animaisEspecie;
+	}
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
