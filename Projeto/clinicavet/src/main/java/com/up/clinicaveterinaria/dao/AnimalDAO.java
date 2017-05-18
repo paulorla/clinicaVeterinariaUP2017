@@ -158,11 +158,11 @@ public class AnimalDAO implements IGenericDAO<Animal, Long>{
 				
 				List<Alergia> alergias = new ArrayList<Alergia>();
 				
-				Long idAlergia = resultSet.getLong("idalergia");
+				resultSet.getLong("idalergia");
 				if(!resultSet.wasNull()){
 					do{
 						Alergia al = new Alergia();
-						al.setId(idAlergia);
+						al.setId(resultSet.getLong("idalergia"));
 						al.setNomeAlergia(resultSet.getString("nomealergia"));
 						al.setDescricao(resultSet.getString("descricaoalergia"));
 						alergias.add(al);
