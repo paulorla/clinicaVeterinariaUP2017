@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.up.clinicaveterinaria.jdbc.ConnectionFactory;
+import com.up.clinicaveterinaria.model.Animal;
 import com.up.clinicaveterinaria.model.Dono;
 
 public class DonoDAO implements IGenericDAO<Dono, Long>{
@@ -49,6 +50,92 @@ public class DonoDAO implements IGenericDAO<Dono, Long>{
 			try{
 				if(statement != null)
 					statement.close();
+			}catch(Exception e){
+				exp = e;
+				//logar exceção
+			}
+			try{
+				if(con != null)
+					con.close();
+			}catch(Exception e){
+				exp = e;
+				//logar exceção
+			}
+		}
+		throw exp;//lançando somente a última exceção gerada para simplificar!
+	}
+	
+	public void persistirComAnimais(Dono objeto) throws Exception {
+		Connection con=null;
+		PreparedStatement statementDono = null;
+		PreparedStatement statementAnimais = null;
+		ResultSet generatedKeys = null;
+		Exception exp = null;
+		try{
+			con = connectionFactory.getConnection();
+			con.setAutoCommit(false);
+			String sql = "INSERT INTO DONO "
+					+ "(cpf,nome,nascimento) VALUES (?,?,?)";
+			statementDono = con.prepareStatement(sql,
+					Statement.RETURN_GENERATED_KEYS);
+			statementDono.setLong(1, objeto.getCpf());
+			statementDono.setString(2, objeto.getNome());
+			if(objeto.getNascimento() != null)
+				statementDono.setDate(3, 
+						new java.sql.Date(objeto.getNascimento().getTime()));
+			else
+				statementDono.setDate(3, null);
+			
+			statementDono.executeUpdate();
+			generatedKeys = statementDono.getGeneratedKeys();
+			if(generatedKeys.next())
+				objeto.setId(generatedKeys.getLong(1));
+			else
+				throw new Exception("Erro ao persistir o objeto");
+			
+			sql = "INSERT INTO ANIMAL "
+					+ "(nome,nascimento, dono_id, especie_id) VALUES (?,?,?,?)";
+			statementAnimais = con.prepareStatement(sql,
+					Statement.RETURN_GENERATED_KEYS);
+			
+			for(Animal a : objeto.getAnimais()){
+				generatedKeys.close();
+				statementAnimais.setString(1, a.getNome());
+				if(a.getNascimento() == null)
+					statementAnimais.setDate(2, null);
+				else
+					statementAnimais.setDate(2, new java.sql.Date(a.getNascimento().getTime()));
+				statementAnimais.setLong(3, objeto.getId());
+				statementAnimais.setLong(4, a.getEspecie().getId());
+				
+				statementAnimais.executeUpdate();
+				generatedKeys = statementAnimais.getGeneratedKeys();
+				if(generatedKeys.next())
+					a.setId(generatedKeys.getLong(1));
+			}
+			con.commit();
+			return;
+		}catch(Exception e){
+			con.rollback();
+			exp = e;
+		}finally{
+			try{
+				if(generatedKeys != null)
+					generatedKeys.close();
+			}catch(Exception e){
+				exp = e;
+				//logar exceção
+			}
+			try{
+				if(statementAnimais!= null)
+					statementAnimais.close();
+			}catch(Exception e){
+				exp = e;
+				//logar exceção
+			}
+			try{
+				if(statementDono != null)
+					statementDono.close();
 			}catch(Exception e){
 				exp = e;
 				//logar exceção
