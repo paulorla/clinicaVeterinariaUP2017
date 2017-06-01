@@ -3,15 +3,32 @@ package com.up.clinicaveterinaria.model;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
+@Entity
+@Table(name="dono")
 public class Dono {
-	private Long id;
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id")
+	private Integer id;
+	@Column(name="cpf",nullable=false,unique=true)
 	private Long cpf;
 	private String nome;
 	private Date nascimento;
-	private Endereco endereco;
+	//private Endereco endereco;
+	@OneToMany(mappedBy="dono")
 	private List<Animal> animais;
 	
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 	
@@ -19,15 +36,11 @@ public class Dono {
 		return animais;
 	}
 
-
-
 	public void setAnimais(List<Animal> animais) {
 		this.animais = animais;
 	}
 
-
-
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	
@@ -55,13 +68,13 @@ public class Dono {
 		this.nascimento = nascimento;
 	}
 
-	public Endereco getEndereco() {
-		return endereco;
-	}
-
-	public void setEndereco(Endereco endereco) {
-		this.endereco = endereco;
-	}
+//	public Endereco getEndereco() {
+//		return endereco;
+//	}
+//
+//	public void setEndereco(Endereco endereco) {
+//		this.endereco = endereco;
+//	}
 
 	@Override
 	public int hashCode() {

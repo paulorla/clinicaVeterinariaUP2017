@@ -2,12 +2,18 @@ package com.up.clinicaveterinaria.model;
 
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="tipo_animal")
 public class TipoAnimal {
-	
+	@Id
 	private String acronimo;
 	private String nome;
 	private String Descricao;
-	private List<Especie> especies;
+	//private List<Especie> especies;
 	
 	public String getAcronimo() {
 		return acronimo;
@@ -33,13 +39,13 @@ public class TipoAnimal {
 		Descricao = descricao;
 	}
 
-	public List<Especie> getEspecies() {
-		return especies;
-	}
-
-	public void setEspecies(List<Especie> especies) {
-		this.especies = especies;
-	}
+//	public List<Especie> getEspecies() {
+//		return especies;
+//	}
+//
+//	public void setEspecies(List<Especie> especies) {
+//		this.especies = especies;
+//	}
 
 	@Override
 	public int hashCode() {

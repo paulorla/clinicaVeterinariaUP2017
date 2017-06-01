@@ -3,20 +3,41 @@ package com.up.clinicaveterinaria.model;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="animal")
 public class Animal {
-	private Long id;
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Integer id;
 	private String nome;
 	private Date nascimento;
+	@ManyToOne
+	@JoinColumn(name = "DONO_ID",nullable=false)
 	private Dono dono;
-	private Especie especie;
+	//private Especie especie;
+	@ManyToMany
+	@JoinTable(name="alergia_animal",
+		joinColumns={@JoinColumn(name="animal_id", referencedColumnName="id")},
+		inverseJoinColumns={@JoinColumn(name="alergia_id",referencedColumnName="id")}
+	)
 	private List<Alergia> alergias;
-	private List<VacinaAnimal> vacinasAnimal;
+	//private List<VacinaAnimal> vacinasAnimal;
 	
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 	
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	
@@ -44,13 +65,13 @@ public class Animal {
 		this.dono = dono;
 	}
 	
-	public Especie getEspecie() {
-		return especie;
-	}
-	
-	public void setEspecie(Especie especie) {
-		this.especie = especie;
-	}
+//	public Especie getEspecie() {
+//		return especie;
+//	}
+//	
+//	public void setEspecie(Especie especie) {
+//		this.especie = especie;
+//	}
 	
 	public List<Alergia> getAlergias() {
 		return alergias;
@@ -60,13 +81,13 @@ public class Animal {
 		this.alergias = alergias;
 	}
 	
-	public List<VacinaAnimal> getVacinasAnimal() {
-		return vacinasAnimal;
-	}
+//	public List<VacinaAnimal> getVacinasAnimal() {
+//		return vacinasAnimal;
+//	}
 	
-	public void setVacinasAnimal(List<VacinaAnimal> vacinasAnimal) {
-		this.vacinasAnimal = vacinasAnimal;
-	}
+//	public void setVacinasAnimal(List<VacinaAnimal> vacinasAnimal) {
+//		this.vacinasAnimal = vacinasAnimal;
+//	}
 
 	@Override
 	public int hashCode() {

@@ -2,17 +2,27 @@ package com.up.clinicaveterinaria.model;
 
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="alergia")
 public class Alergia {
-	private Long id;
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Integer id;
 	private String nomeAlergia;
 	private String descricao;
-	private List<Animal> animais;
+	//private List<Animal> animais;
 	
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 	
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	
@@ -32,13 +42,13 @@ public class Alergia {
 		this.descricao = descricao;
 	}
 
-	public List<Animal> getAnimais() {
-		return animais;
-	}
-
-	public void setAnimais(List<Animal> animais) {
-		this.animais = animais;
-	}
+//	public List<Animal> getAnimais() {
+//		return animais;
+//	}
+//
+//	public void setAnimais(List<Animal> animais) {
+//		this.animais = animais;
+//	}
 
 	@Override
 	public int hashCode() {
