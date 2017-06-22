@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -13,7 +14,8 @@ public class TipoAnimal {
 	private String acronimo;
 	private String nome;
 	private String Descricao;
-	//private List<Especie> especies;
+	@OneToMany(mappedBy="tipoAnimal")
+	private List<Especie> especies;
 	
 	public String getAcronimo() {
 		return acronimo;
@@ -39,13 +41,13 @@ public class TipoAnimal {
 		Descricao = descricao;
 	}
 
-//	public List<Especie> getEspecies() {
-//		return especies;
-//	}
-//
-//	public void setEspecies(List<Especie> especies) {
-//		this.especies = especies;
-//	}
+	public List<Especie> getEspecies() {
+		return especies;
+	}
+
+	public void setEspecies(List<Especie> especies) {
+		this.especies = especies;
+	}
 
 	@Override
 	public int hashCode() {

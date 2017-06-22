@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -16,7 +17,8 @@ public class Alergia {
 	private Integer id;
 	private String nomeAlergia;
 	private String descricao;
-	//private List<Animal> animais;
+	@ManyToMany(mappedBy="alergias")
+	private List<Animal> animais;
 	
 	public Integer getId() {
 		return id;
@@ -42,13 +44,13 @@ public class Alergia {
 		this.descricao = descricao;
 	}
 
-//	public List<Animal> getAnimais() {
-//		return animais;
-//	}
-//
-//	public void setAnimais(List<Animal> animais) {
-//		this.animais = animais;
-//	}
+	public List<Animal> getAnimais() {
+		return animais;
+	}
+
+	public void setAnimais(List<Animal> animais) {
+		this.animais = animais;
+	}
 
 	@Override
 	public int hashCode() {

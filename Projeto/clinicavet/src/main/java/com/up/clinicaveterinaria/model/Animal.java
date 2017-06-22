@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -24,14 +25,16 @@ public class Animal {
 	@ManyToOne
 	@JoinColumn(name = "DONO_ID",nullable=false)
 	private Dono dono;
-	//private Especie especie;
+	@ManyToOne
+	@JoinColumn(name = "ESPECIE_ID",nullable=false)
+	private Especie especie;
 	@ManyToMany
 	@JoinTable(name="alergia_animal",
 		joinColumns={@JoinColumn(name="animal_id", referencedColumnName="id")},
-		inverseJoinColumns={@JoinColumn(name="alergia_id",referencedColumnName="id")}
-	)
+		inverseJoinColumns={@JoinColumn(name="alergia_id",referencedColumnName="id")}	)
 	private List<Alergia> alergias;
-	//private List<VacinaAnimal> vacinasAnimal;
+	@OneToMany(mappedBy="vacinaAnimalID.animal")
+	private List<VacinaAnimal> vacinasAnimal;
 	
 	public Integer getId() {
 		return id;
@@ -65,13 +68,13 @@ public class Animal {
 		this.dono = dono;
 	}
 	
-//	public Especie getEspecie() {
-//		return especie;
-//	}
-//	
-//	public void setEspecie(Especie especie) {
-//		this.especie = especie;
-//	}
+	public Especie getEspecie() {
+		return especie;
+	}
+	
+	public void setEspecie(Especie especie) {
+		this.especie = especie;
+	}
 	
 	public List<Alergia> getAlergias() {
 		return alergias;
@@ -81,13 +84,13 @@ public class Animal {
 		this.alergias = alergias;
 	}
 	
-//	public List<VacinaAnimal> getVacinasAnimal() {
-//		return vacinasAnimal;
-//	}
+	public List<VacinaAnimal> getVacinasAnimal() {
+		return vacinasAnimal;
+	}
 	
-//	public void setVacinasAnimal(List<VacinaAnimal> vacinasAnimal) {
-//		this.vacinasAnimal = vacinasAnimal;
-//	}
+	public void setVacinasAnimal(List<VacinaAnimal> vacinasAnimal) {
+		this.vacinasAnimal = vacinasAnimal;
+	}
 
 	@Override
 	public int hashCode() {

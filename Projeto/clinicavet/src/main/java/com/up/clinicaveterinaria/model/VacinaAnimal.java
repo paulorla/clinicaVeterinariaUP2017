@@ -2,8 +2,15 @@ package com.up.clinicaveterinaria.model;
 
 import java.util.Date;
 
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="vacina_animal")
 public class VacinaAnimal {
 	
+	@EmbeddedId
 	private VacinaAnimalID vacinaAnimalID;
 	private String descricaoVeterinario;
 	

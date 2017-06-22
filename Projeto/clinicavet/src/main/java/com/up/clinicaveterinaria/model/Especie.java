@@ -2,12 +2,27 @@ package com.up.clinicaveterinaria.model;
 
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="ESPECIE")
 public class Especie {
-	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	private String nome;
 	private String descricao;
+	@ManyToOne
+	@JoinColumn(name="TIPO_ANIMAL_ACRONIMO", nullable=false)
 	private TipoAnimal tipoAnimal;
+	@OneToMany(mappedBy="especie")
 	private List<Animal> animaisEspecie;
 	
 	public Long getId() {

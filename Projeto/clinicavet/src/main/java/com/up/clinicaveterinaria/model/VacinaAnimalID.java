@@ -1,12 +1,24 @@
 package com.up.clinicaveterinaria.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class VacinaAnimalID {
+import javax.persistence.Embeddable;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+@Embeddable
+public class VacinaAnimalID implements Serializable{
+
+	private static final long serialVersionUID = 1L;
+	
+	@ManyToOne
+	@JoinColumn(name = "animal_id", referencedColumnName = "id")
 	private Animal animal;
+	@ManyToOne
+	@JoinColumn(name = "vacina_id", referencedColumnName = "id")
 	private Vacina vacina;
 	private Date dataVacinacao;
-	
 	
 	public Animal getAnimal() {
 		return animal;
