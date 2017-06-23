@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -28,12 +29,13 @@ public class Animal {
 	@ManyToOne
 	@JoinColumn(name = "ESPECIE_ID",nullable=false)
 	private Especie especie;
-	@ManyToMany
+	@ManyToMany(fetch=FetchType.EAGER)
 	@JoinTable(name="alergia_animal",
 		joinColumns={@JoinColumn(name="animal_id", referencedColumnName="id")},
 		inverseJoinColumns={@JoinColumn(name="alergia_id",referencedColumnName="id")}	)
 	private List<Alergia> alergias;
-	@OneToMany(mappedBy="vacinaAnimalID.animal")
+	
+	@OneToMany(mappedBy="vacinaAnimalID.animal", fetch=FetchType.LAZY)
 	private List<VacinaAnimal> vacinasAnimal;
 	
 	public Integer getId() {

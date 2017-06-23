@@ -16,17 +16,15 @@ public class Main {
 			EntityManagerFactory factory = Persistence.createEntityManagerFactory("clinica_pu");
 			EntityManager em =factory.createEntityManager();
 			
-			Dono d = null;
+			Animal a = null;
 			em.getTransaction().begin();
-			d = em.find(Dono.class, 3);
+			a = em.find(Animal.class, 4);
 			em.getTransaction().commit();
 			
-			System.out.println(d.getNome());
+			System.out.println(a.getNome());
 			
-			for(Animal a : d.getAnimais()){
-				System.out.println(a.getNome());
-				for(VacinaAnimal va : a.getVacinasAnimal())
-					System.out.println("\t" + va.getVacina().getNome() + " " + va.getDataVacinacao());
+			for(Alergia al : a.getAlergias()){
+				System.out.println("\t" + al.getNomeAlergia());
 			}
 			em.close();
 			factory.close();
