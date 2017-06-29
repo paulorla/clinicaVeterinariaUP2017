@@ -1,5 +1,6 @@
 package com.up.clinicaveterinaria.model;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -8,14 +9,16 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="dono")
-public class Dono {
+public class Dono implements Serializable{
+
+	private static final long serialVersionUID = 1L;
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id")
@@ -24,10 +27,9 @@ public class Dono {
 	private Long cpf;
 	private String nome;
 	private Date nascimento;
-	//private Endereco endereco;
+	@OneToOne(mappedBy="dono")
+	private Endereco endereco;
 	@OneToMany(mappedBy="dono")
-	//@OneToMany
-	//@JoinColumn(name="dono_id",referencedColumnName="id")
 	private List<Animal> animais;
 	
 	public Integer getId() {
@@ -70,13 +72,13 @@ public class Dono {
 		this.nascimento = nascimento;
 	}
 
-//	public Endereco getEndereco() {
-//		return endereco;
-//	}
-//
-//	public void setEndereco(Endereco endereco) {
-//		this.endereco = endereco;
-//	}
+	public Endereco getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
+	}
 
 	@Override
 	public int hashCode() {

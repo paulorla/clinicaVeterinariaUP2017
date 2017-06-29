@@ -1,6 +1,21 @@
 package com.up.clinicaveterinaria.model;
 
-public class Endereco {
+import java.io.Serializable;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="endereco")
+public class Endereco implements Serializable{
+	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@OneToOne
+	@JoinColumn(name="dono_id",referencedColumnName="id")
 	private Dono dono;
 	private String logradouro;
 	private String bairro;

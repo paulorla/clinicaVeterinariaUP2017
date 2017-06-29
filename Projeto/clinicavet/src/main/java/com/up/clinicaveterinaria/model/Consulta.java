@@ -2,13 +2,25 @@ package com.up.clinicaveterinaria.model;
 
 import java.util.Date;
 
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
 import com.up.clinicaveterinaria.constants.Constants;
 import com.up.clinicaveterinaria.exception.AssociacaoInvalidaException;
 
+@Entity
+@Table(name="consulta")
 public class Consulta {
-	
+	@EmbeddedId
 	private ConsultaId consultaId;
+	@ManyToOne
+	@JoinColumn(name="veterinario_id")
 	private Funcionario veterinario;
+	@ManyToOne
+	@JoinColumn(name="funcionario_agend_id")
 	private Funcionario responsavelAgendamento;
 	
 	public Consulta(){

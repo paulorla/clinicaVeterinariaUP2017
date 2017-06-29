@@ -1,9 +1,21 @@
 package com.up.clinicaveterinaria.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class ConsultaId {
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+@Embeddable
+public class ConsultaId implements Serializable{
+	private static final long serialVersionUID = 1L;
+	
+	@ManyToOne
+	@JoinColumn(name = "animal_id", referencedColumnName = "id")
 	private Animal animal;
+	@Column(name="datahora_consulta")
 	private Date dataHoraConsulta;
 	
 	public Animal getAnimal() {

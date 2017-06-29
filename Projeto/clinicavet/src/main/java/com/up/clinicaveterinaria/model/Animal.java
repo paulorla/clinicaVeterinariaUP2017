@@ -26,6 +26,10 @@ public class Animal {
 	@ManyToOne
 	@JoinColumn(name = "DONO_ID",nullable=false)
 	private Dono dono;
+	
+	@OneToMany(mappedBy="consultaId.animal")
+	private List<Consulta> consulta;
+	
 	@ManyToOne
 	@JoinColumn(name = "ESPECIE_ID",nullable=false)
 	private Especie especie;
@@ -92,6 +96,13 @@ public class Animal {
 	
 	public void setVacinasAnimal(List<VacinaAnimal> vacinasAnimal) {
 		this.vacinasAnimal = vacinasAnimal;
+	}
+	public List<Consulta> getConsulta() {
+		return consulta;
+	}
+
+	public void setConsulta(List<Consulta> consulta) {
+		this.consulta = consulta;
 	}
 
 	@Override

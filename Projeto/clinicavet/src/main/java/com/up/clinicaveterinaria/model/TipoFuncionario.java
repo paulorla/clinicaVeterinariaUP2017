@@ -1,8 +1,21 @@
 package com.up.clinicaveterinaria.model;
 
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="tipo_funcionario")
 public class TipoFuncionario {
+	@Id
 	private String codigoTipo;
 	private String descricao;
+	
+	@OneToMany(mappedBy="tipoFuncionario")
+	private List<Funcionario> funcionarios;
 	
 	public String getCodigoTipo() {
 		return codigoTipo;
@@ -18,6 +31,14 @@ public class TipoFuncionario {
 	
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
+	}
+
+	public List<Funcionario> getFuncionarios() {
+		return funcionarios;
+	}
+
+	public void setFuncionarios(List<Funcionario> funcionarios) {
+		this.funcionarios = funcionarios;
 	}
 
 	@Override
