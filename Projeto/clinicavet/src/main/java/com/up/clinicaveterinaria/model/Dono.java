@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -29,7 +30,7 @@ public class Dono implements Serializable{
 	private Date nascimento;
 	@OneToOne(mappedBy="dono")
 	private Endereco endereco;
-	@OneToMany(mappedBy="dono")
+	@OneToMany(mappedBy="dono",fetch=FetchType.EAGER)
 	private List<Animal> animais;
 	
 	public Integer getId() {
