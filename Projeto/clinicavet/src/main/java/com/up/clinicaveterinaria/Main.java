@@ -1,5 +1,7 @@
 package com.up.clinicaveterinaria;
 
+import java.util.List;
+
 import com.up.clinicaveterinaria.dao.DonoDAO;
 import com.up.clinicaveterinaria.dao.GenericDAO;
 import com.up.clinicaveterinaria.model.Animal;
@@ -10,13 +12,23 @@ public class Main {
 		DonoDAO donoDAO = new DonoDAO();
 		try{
 			donoDAO.beginTransaction();
-			Dono d = donoDAO.find(3);
+			List<Dono> donos = donoDAO.listarPessoasQuePossuemTipoAnimal("GAT");
+			
+			for(Dono d : donos)
+				System.out.println(d.getNome());
 			donoDAO.commitAndCloseTransaction();
 			
+			donoDAO.beginTransaction();
+			Dono d = donoDAO.find(3);
 			System.out.println(d.getNome());
-			
 			for(Animal a : d.getAnimais())
-				System.out.println("\t" + a.getNome());
+				System.out.println(a.getNome());
+			
+			
+			
+			donoDAO.commitAndCloseTransaction();
+			
+			
 			
 		}catch(Exception e){
 			e.printStackTrace();

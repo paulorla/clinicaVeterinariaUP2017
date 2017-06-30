@@ -30,7 +30,7 @@ public class Dono implements Serializable{
 	private Date nascimento;
 	@OneToOne(mappedBy="dono")
 	private Endereco endereco;
-	@OneToMany(mappedBy="dono",fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="dono",fetch=FetchType.LAZY)
 	private List<Animal> animais;
 	
 	public Integer getId() {

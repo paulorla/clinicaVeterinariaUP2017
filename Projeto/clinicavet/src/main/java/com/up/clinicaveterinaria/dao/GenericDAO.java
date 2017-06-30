@@ -80,4 +80,8 @@ public abstract class GenericDAO<ID, U> {
 	public static void fecharEntityManagerFactory(){
 		emf.close();
 	}
+	
+	protected EntityManager getEntityManager(){
+		return em;
+	}
 }
