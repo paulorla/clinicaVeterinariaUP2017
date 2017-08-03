@@ -24,12 +24,7 @@ public class Main {
 			for(Animal a : d.getAnimais())
 				System.out.println(a.getNome());
 			
-			
-			
 			donoDAO.commitAndCloseTransaction();
-			
-			
-			
 		}catch(Exception e){
 			e.printStackTrace();
 		}finally {
