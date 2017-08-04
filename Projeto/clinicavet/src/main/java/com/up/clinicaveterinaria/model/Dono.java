@@ -10,12 +10,18 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="dono")
+@NamedQueries({
+	@NamedQuery(name="Dono.findBycpf", query = " SELECT d FROM Dono d where d.cpf = :cpf" ),
+	@NamedQuery(name="Dono.listSemDataNascimento", query="SELECT d FROM Dono d WHERE d.nascimento is null")
+})
 public class Dono implements Serializable{
 
 	private static final long serialVersionUID = 1L;
@@ -28,7 +34,7 @@ public class Dono implements Serializable{
 	private Long cpf;
 	private String nome;
 	private Date nascimento;
-	@OneToOne(mappedBy="dono")
+	@OneToOne(mappedBy="dono", orphanRemoval=true)
 	private Endereco endereco;
 	@OneToMany(mappedBy="dono",fetch=FetchType.LAZY)
 	private List<Animal> animais;

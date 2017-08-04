@@ -13,6 +13,17 @@ public class DonoDAO extends GenericDAO<Integer, Dono> {
 		super(Dono.class);
 	}
 
+	public Dono findByCPF(Long cpf) {
+		Query query = super.getEntityManager().createNamedQuery("Dono.findBycpf");
+		query.setParameter("cpf", cpf);
+		try {
+			Dono retorno = (Dono) query.getSingleResult();
+			return retorno;
+		}catch (NoResultException ex) {
+			return null;
+		}
+	}
+
 	public List<Dono> listar() {
 		String sql = "select d from Dono d";
 		Query query = super.getEntityManager().createQuery(sql);
@@ -34,9 +45,7 @@ public class DonoDAO extends GenericDAO<Integer, Dono> {
 	}
 
 	public Dono findEager(Integer id) {
-		String sql = "select d from Dono d " 
-					+ " inner join fetch d.animais" 
-					+ " where d.id = :idDono";
+		String sql = "select d from Dono d " + " inner join fetch d.animais" + " where d.id = :idDono";
 		TypedQuery<Dono> query = super.getEntityManager().createQuery(sql, Dono.class);
 		query.setParameter("idDono", id);
 		try {

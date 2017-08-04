@@ -96,3 +96,6 @@ WHERE A.NOME = 'Totó' AND FUNC.CPF = 5555555 AND VET.CPF = 666666666;
 
 INSERT INTO ENDERECO (dono_id, logradouro, bairro, numero, cidade, cep)
 select id,'rua do dono','meu bairro',23,'Curitiba',2345678 from dono d where d.cpf = 99999999999;
+
+INSERT INTO ENDERECO (dono_id, logradouro, bairro, numero, cidade, cep)
+select id,'rua do dono','meu bairro',23,'Curitiba',2345678 from dono d where d.cpf = 123456789;

@@ -12,19 +12,17 @@ public class Main {
 		DonoDAO donoDAO = new DonoDAO();
 		try{
 			donoDAO.beginTransaction();
-			List<Dono> donos = donoDAO.listarPessoasQuePossuemTipoAnimal("GAT");
-			
-			for(Dono d : donos)
-				System.out.println(d.getNome());
+			Dono d = donoDAO.findByCPF(123456789L);
+			System.out.println(d.getNome());
+			System.out.println(d.getEndereco().getCidade());
 			donoDAO.commitAndCloseTransaction();
+			
+			d.setNome("Maria 4");
 			
 			donoDAO.beginTransaction();
-			Dono d = donoDAO.find(3);
-			System.out.println(d.getNome());
-			for(Animal a : d.getAnimais())
-				System.out.println(a.getNome());
-			
+			donoDAO.update(d);
 			donoDAO.commitAndCloseTransaction();
+			
 		}catch(Exception e){
 			e.printStackTrace();
 		}finally {
