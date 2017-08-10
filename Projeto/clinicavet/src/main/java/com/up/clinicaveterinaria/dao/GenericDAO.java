@@ -5,7 +5,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.Persistence;
 
-public abstract class GenericDAO<ID, U> {
+public abstract class GenericDAO<ID, U> implements IGenericDAO<ID, U>{
 
 	private static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("clinica_pu");
 	private EntityManager em;
@@ -15,9 +15,16 @@ public abstract class GenericDAO<ID, U> {
 		this.entityClass = entityClass;
 	}
 
+	@Override
 	public void beginTransaction() {
 		em = emf.createEntityManager();
 		em.getTransaction().begin();
+	}
+	
+	public boolean isTransactionActive() {
+		if(em == null)
+			return false;
+		return em.getTransaction().isActive();
 	}
 
 	private void commit() {
@@ -28,6 +35,7 @@ public abstract class GenericDAO<ID, U> {
 		em.getTransaction().rollback();
 	}
 
+	@Override
 	public void rollbackAndCloseTransaction() {
 		try {
 			this.rollback();
@@ -40,6 +48,7 @@ public abstract class GenericDAO<ID, U> {
 		this.em.close();
 	}
 
+	@Override
 	public void commitAndCloseTransaction() {
 		try {
 			this.commit();
@@ -48,27 +57,33 @@ public abstract class GenericDAO<ID, U> {
 		}
 	}
 
+	@Override
 	public void flush() {
 		em.flush();
 	}
 
+	@Override
 	public void save(U entity) {
 		em.persist(entity);
 	}
 
+	@Override
 	public void delete(U entity) {
 		em.refresh(entity);
 		em.remove(entity);
 	}
 
+	@Override
 	public U update(U entity) {
 		return em.merge(entity);
 	}
 
+	@Override
 	public U find(ID entityID) {
 		return em.find(entityClass, entityID);
 	}
 
+	@Override
 	public U findReferenceOnly(ID entityID) {
 		try {
 			return em.getReference(entityClass, entityID);
