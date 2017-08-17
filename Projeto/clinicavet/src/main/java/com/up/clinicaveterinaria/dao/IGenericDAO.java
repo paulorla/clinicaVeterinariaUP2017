@@ -19,4 +19,6 @@ public interface IGenericDAO<ID, U> {
 	public abstract U find(ID entityID);
 
 	public abstract U findReferenceOnly(ID entityID);
+	
+	public boolean isTransactionActive();
 }
