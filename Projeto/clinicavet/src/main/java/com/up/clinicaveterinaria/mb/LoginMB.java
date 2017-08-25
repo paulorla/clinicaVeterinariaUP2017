@@ -27,7 +27,7 @@ public class LoginMB {
 		this.userMB = userMB;
 	}
 
-	public void login() {
+	public String login() {
 		try{
 			if(cpf == 1) {//loga somente se digitarmos 1
 				Funcionario f = new Funcionario();
@@ -39,6 +39,8 @@ public class LoginMB {
 				f.setTipoFuncionario(new TipoFuncionario());
 	
 				userMB.setFuncionario(f);
+				
+				return "index";
 			}else {
 				JSFMessageUtil.sendWarningMessageToUser("Dados incorretos!");
 			}
@@ -46,5 +48,6 @@ public class LoginMB {
 			e.printStackTrace();//LOGAR!
 			JSFMessageUtil.sendWarningMessageToUser("Ocorreu um erro na aplicação!");
 		}
+		return null;
 	}
 }
