@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename local variable &apos;animal&apos; in &apos;com.up.clinicaveterinaria.facade.GenericFacade.save(...)&apos; to &apos;obj&apos;&#x0A;- Original project: &apos;clinicavet&apos;&#x0A;- Original element: &apos;com.up.clinicaveterinaria.facade.GenericFacade.save(U).animal&apos;&#x0A;- Renamed element: &apos;animal&apos;&#x0A;- Update references to refactored element" description="Rename local variable &apos;animal&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src\/main\/java&lt;com.up.clinicaveterinaria.facade{GenericFacade.java[GenericFacade~save~QU;@animal!311!318!313!318!QU;!0!true" name="obj" references="true" stamp="1502413621032" version="1.0"/>
-</session>

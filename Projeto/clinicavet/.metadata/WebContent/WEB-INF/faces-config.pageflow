@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf15036151861490" configfile="/clinicavet/WebContent/WEB-INF/faces-config.xml">
-  <nodes xsi:type="pageflow:PFPage" name="*" id="pf15036195592870" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf15036195592871" path="*"/>
-  <nodes xsi:type="pageflow:PFPage" name="pages/index.xhtml" id="pf15036195592872" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf15036195592871" path="/pages/index.xhtml"/>
-  <links id="pf15036195592871" target="pf15036195592872" source="pf15036195592870" outcome="index" redirect="true"/>
-</pageflow:Pageflow>
