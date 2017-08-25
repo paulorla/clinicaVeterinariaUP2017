@@ -1,0 +1,18 @@
+package com.up.clinicaveterinaria.mb;
+
+public class LoginMB {
+	
+	private Long cpf;
+
+	public Long getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(Long cpf) {
+		this.cpf = cpf;
+	}
+	
+	public void login() {
+		System.out.println("Realizando o login com o CPF: " + cpf);	
+	}
+}
