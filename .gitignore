@@ -1,4 +1,7 @@
 version.ini
+.metadata.plugins\org.eclipse.debug.core
+.metadata.plugins\org.eclipse.wst.server.core
+.metadata.plugins\org.eclipse.core.runtime.settings\org.eclipse.jst.server.tomcat.core.prefs
 .metadata/.plugins/org.eclipse.jdt.core/variablesAndContainers.dat
 .metadata/.plugins/org.eclipse.core.resources/.projects/*/.location
 *.class
