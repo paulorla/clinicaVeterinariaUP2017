@@ -4,7 +4,7 @@ import com.up.clinicaveterinaria.dao.IGenericDAO;
 
 public class GenericFacade <ID, U, DAO extends IGenericDAO<ID, U>> implements IGenericFacade<ID, U>{
 
-	private DAO dao;
+	protected DAO dao;
 	
 	public GenericFacade(DAO dao) {
 		super();

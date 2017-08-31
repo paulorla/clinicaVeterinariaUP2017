@@ -12,11 +12,11 @@
 <h:body>
 <h:form>
 	<p:growl id="messages" showDetail="true" autoUpdate="true" closable="true" />
-	<h:panelGrid columns="3"><!-- definimos um grid de duas colunas -->
-	<h:outputLabel value="CPF: " /> <!-- escreve na tela -->
+	<p:panelGrid columns="3"	>
+	<h:outputLabel value="CPF: " />
 	<h:inputText value="#{loginMB.cpf}" label="cpf" id="cpf" required="true" />
-	</h:panelGrid>
 	<p:commandButton value="Entrar" type="submit" action="#{loginMB.login()}" id="btnSubmit" ajax="false"/>
+	</p:panelGrid>
 </h:form>
 </h:body>
 </html>
