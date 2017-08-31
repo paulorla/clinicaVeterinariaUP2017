@@ -2,10 +2,14 @@ package com.up.clinicaveterinaria.mb;
 
 import java.util.Date;
 
+import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpServletRequest;
+
 import com.up.clinicaveterinaria.facade.FuncionarioFacade;
 import com.up.clinicaveterinaria.model.Funcionario;
 import com.up.clinicaveterinaria.model.TipoFuncionario;
 import com.up.clinicaveterinaria.util.JSFMessageUtil;
+import com.up.clinicaveterinaria.util.PropertiesUtil;
 
 public class LoginMB {
 	
@@ -36,16 +40,25 @@ public class LoginMB {
 				Funcionario f = funcionarioFacade.findByCpf(cpf);
 				if(f!=null) {
 					userMB.setFuncionario(f);
-					return "index";
+					
+					FacesContext context = FacesContext.getCurrentInstance();
+					HttpServletRequest request = (HttpServletRequest)
+						 context.getExternalContext().getRequest();
+					request.getSession().setAttribute("user", f);
+					
+					return NavegacaoMB.VAI_PARA_INDEX;
 				}else {
-					JSFMessageUtil.sendWarningMessageToUser("Dados Incorretos!");
+					JSFMessageUtil.sendWarningMessageToUser(
+							PropertiesUtil.getInstance().get("avsDadosLoginIncorretos"));
 				}
 			}else {
-				JSFMessageUtil.sendWarningMessageToUser("Campos em branco!");
+				JSFMessageUtil.sendWarningMessageToUser(
+						PropertiesUtil.getInstance().get("avsDadosLoginIncorretos"));
 			}
 		}catch(Exception e){
 			e.printStackTrace();//LOGAR!
-			JSFMessageUtil.sendWarningMessageToUser("Ocorreu um erro na aplicação!");
+			JSFMessageUtil.sendWarningMessageToUser(
+					PropertiesUtil.getInstance().get("avsErroGenericoAplicacao"));
 		}
 		return null;
 	}

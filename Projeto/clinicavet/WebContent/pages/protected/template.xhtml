@@ -16,7 +16,15 @@
 	<h:body>
 		<div id="wrapper_template">
 			<header>
-				SPT CliniVet
+			<div>
+			<div style="float:left">
+			    <h:graphicImage library="images" name="elefante.jpg" width="50" height="50" alt="Logo Clinica" />
+			</div>
+			<div style="float:left">
+			<h1>SPT CliniVet</h1>
+			</div>
+			</div>
+			<br clear="all"/>
 			</header>
 			<p:ajaxStatus onstart="PF('statusDialog').show();" onsuccess="PF('statusDialog').hide();"/>  
               
@@ -45,6 +53,7 @@
 									<h:outputText value="Usuário:" style="margin-right:5px; font-size:10px; font-style:italic;" />
 									<br />
 									<h:outputText value="#{userMB.funcionario.nome}" style="margin-right:10px; font-size:10px; font-weight:bold;" />
+									<p:commandButton value="#{bundle.btnLogout}" action="#{userMB.logOut}" icon="ui-icon-extlink" ajax="false" />
 								</div>
 							</f:facet>
 						</p:menubar>
