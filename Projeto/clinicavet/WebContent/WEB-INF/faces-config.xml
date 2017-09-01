@@ -38,6 +38,11 @@
 		<managed-bean-class>com.up.clinicaveterinaria.mb.NavegacaoMB</managed-bean-class>
 		<managed-bean-scope>application</managed-bean-scope>
 	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>cadastroAnimaisMB</managed-bean-name>
+		<managed-bean-class>com.up.clinicaveterinaria.mb.CadastroAnimaisMB</managed-bean-class>
+		<managed-bean-scope>view</managed-bean-scope>
+	</managed-bean>
 	<!-- Fim ManagedBeans -->
 	<!-- Regras de Navegação -->
 	<navigation-rule>
@@ -45,6 +50,11 @@
 		<navigation-case>
 			<from-outcome>index</from-outcome>
 			<to-view-id>/pages/protected/index.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>cadastroAnimais</from-outcome>
+			<to-view-id>/pages/protected/cadastroAnimais.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 	</navigation-rule>

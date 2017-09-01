@@ -5,68 +5,78 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
-	<h:head>
-		<meta charset="UTF-8" />
-		<title>Sistema de Processamento de Dados CliniVet</title>
-		<link rel="shortcut icon" type="image/x-icon" href="#{resource['images:favicon.ico']}" />
-		<h:outputStylesheet library="css" name="layout.css" />
-		<h:outputScript library="javascript" name="modernizr.custom.16634.js"></h:outputScript>
-		<ui:insert name="scripts" />
-	</h:head>
-	<h:body>
-		<div id="wrapper_template">
-			<header>
+<h:head>
+	<meta charset="UTF-8" />
+	<title>Sistema de Processamento de Dados CliniVet</title>
+	<link rel="shortcut icon" type="image/x-icon"
+		href="#{resource['images:favicon.ico']}" />
+	<h:outputStylesheet library="css" name="layout.css" />
+	<h:outputScript library="javascript" name="modernizr.custom.16634.js"></h:outputScript>
+	<ui:insert name="scripts" />
+</h:head>
+<h:body>
+	<div id="wrapper_template">
+		<header>
 			<div>
-			<div style="float:left">
-			    <h:graphicImage library="images" name="elefante.jpg" width="50" height="50" alt="Logo Clinica" />
-			</div>
-			<div style="float:left">
-			<h1>SPT CliniVet</h1>
-			</div>
-			</div>
-			<br clear="all"/>
-			</header>
-			<p:ajaxStatus onstart="PF('statusDialog').show();" onsuccess="PF('statusDialog').hide();"/>  
-              
-			<p:dialog modal="true" widgetVar="statusDialog" header="Aguarde..." resizable="false"
-			        draggable="false" closable="false" showHeader="false" width="200">  
-			    <div style="text-align: center">
-			    	Carregando...
-			    </div>
-			</p:dialog>  
-			<nav>
-				<div>
-					<h:form>
-						<p:menubar>
-							
-							<p:submenu label="Gerencia" icon="ui-icon-document">  
-								<p:menuitem value="Cadastro de Veterinários" icon="ui-icon-document" />
-								<p:menuitem value="Cadastro de Outros Funcionários" />
-					        </p:submenu>
-					        
-					        <p:submenu label="Consultas" icon="ui-icon-document">
-					        	<p:menuitem value="Consultas do Dia" icon="ui-icon-contact"/>
-					        </p:submenu>
-					        
-							<f:facet name="options">
-								<div style="float: left; line-height: 0.8 ! important; margin-top:3px;">
-									<h:outputText value="Usuário:" style="margin-right:5px; font-size:10px; font-style:italic;" />
-									<br />
-									<h:outputText value="#{userMB.funcionario.nome}" style="margin-right:10px; font-size:10px; font-weight:bold;" />
-									<p:commandButton value="#{bundle.btnLogout}" action="#{userMB.logOut}" icon="ui-icon-extlink" ajax="false" />
-								</div>
-							</f:facet>
-						</p:menubar>
-					</h:form>
+				<div style="float: left">
+					<h:graphicImage library="images" name="elefante.jpg" width="50"
+						height="50" alt="Logo Clinica" />
 				</div>
-			</nav>
-			<div id="main">
+				<div style="float: left">
+					<h1>SPT CliniVet</h1>
+				</div>
+			</div>
+			<br clear="all" />
+		</header>
+		<p:ajaxStatus onstart="PF('statusDialog').show();"
+			onsuccess="PF('statusDialog').hide();" />
+
+		<p:dialog modal="true" widgetVar="statusDialog" header="Aguarde..."
+			resizable="false" draggable="false" closable="false"
+			showHeader="false" width="200">
+			<div style="text-align: center">Carregando...</div>
+		</p:dialog>
+		<nav>
+			<div>
+				<h:form>
+					<p:menubar>
+
+						<p:submenu label="Gerencia" icon="ui-icon-document">
+							<p:menuitem value="Cadastro de Veterinários"
+								icon="ui-icon-document" />
+							<p:menuitem value="Cadastro de Outros Funcionários" />
+						</p:submenu>
+
+						<p:submenu label="#{bundle.menuClientes}" icon="ui-icon-document">
+							<p:menuitem value="#{bundle.menuCadastroAnimais}"
+								action="#{navegacaoMB.getVaiParaCadastroAnimais()}"
+								icon="ui-icon-document" />
+							<p:menuitem value="Consultas do Dia" icon="ui-icon-contact" />
+						</p:submenu>
+
+						<f:facet name="options">
+							<div
+								style="float: left; line-height: 0.8 ! important; margin-top: 3px;">
+								<h:outputText value="Usuário:"
+									style="margin-right:5px; font-size:10px; font-style:italic;" />
+								<br />
+								<h:outputText value="#{userMB.funcionario.nome}"
+									style="margin-right:10px; font-size:10px; font-weight:bold;" />
+								<p:commandButton value="#{bundle.btnLogout}"
+									action="#{userMB.logOut}" icon="ui-icon-extlink" ajax="false" />
+							</div>
+						</f:facet>
+					</p:menubar>
+				</h:form>
+			</div>
+		</nav>
+		<div id="main">
+			<div>
 				<div>
-					<div>
-						<ui:insert name="main" />
-					</div>
+					<ui:insert name="main" />
 				</div>
 			</div>
 		</div>
-	</h:body>
+	</div>
+</h:body>
 </html>

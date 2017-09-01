@@ -40,7 +40,6 @@ public class LoginCheckerFilter extends AbstractFilter implements Filter {
 
 		if (session.isNew()) {
 			doLogin(request, response, req);
-			System.out.println("Nao pode acessar");
 			return;
 		}
 		Funcionario func = (Funcionario) session.getAttribute("user");

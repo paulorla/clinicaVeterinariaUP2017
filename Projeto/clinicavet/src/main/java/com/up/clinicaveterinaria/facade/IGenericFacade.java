@@ -1,5 +1,7 @@
 package com.up.clinicaveterinaria.facade;
 
+import java.util.List;
+
 public interface IGenericFacade<ID, U> {
 
 	public void save(U entity) throws Exception;
@@ -11,4 +13,6 @@ public interface IGenericFacade<ID, U> {
 	public U find(ID entityID) throws Exception;
 
 	public U findReferenceOnly(ID entityID) throws Exception;
+	
+	public List<U> listAll();
 }

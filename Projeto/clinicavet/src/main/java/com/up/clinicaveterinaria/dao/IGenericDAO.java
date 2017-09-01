@@ -1,5 +1,7 @@
 package com.up.clinicaveterinaria.dao;
 
+import java.util.List;
+
 public interface IGenericDAO<ID, U> {
 	
 	public abstract void beginTransaction();
@@ -21,4 +23,6 @@ public interface IGenericDAO<ID, U> {
 	public abstract U findReferenceOnly(ID entityID);
 	
 	public boolean isTransactionActive();
+	
+	public List<U> findAll();
 }

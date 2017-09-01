@@ -1,5 +1,7 @@
 package com.up.clinicaveterinaria.facade;
 
+import java.util.List;
+
 import com.up.clinicaveterinaria.dao.IGenericDAO;
 
 public class GenericFacade <ID, U, DAO extends IGenericDAO<ID, U>> implements IGenericFacade<ID, U>{
@@ -72,6 +74,20 @@ public class GenericFacade <ID, U, DAO extends IGenericDAO<ID, U>> implements IG
 			U obj = dao.findReferenceOnly(entityID);
 			dao.commitAndCloseTransaction();
 			return obj;
+		} catch (Exception e) {
+			if (dao.isTransactionActive())
+				dao.rollbackAndCloseTransaction();
+			throw e;
+		}
+	}
+	
+	@Override
+	public List<U> listAll() {
+		try {
+			dao.beginTransaction();
+			List<U> lista = dao.findAll();
+			dao.commitAndCloseTransaction();
+			return lista;
 		} catch (Exception e) {
 			if (dao.isTransactionActive())
 				dao.rollbackAndCloseTransaction();

@@ -1,9 +1,12 @@
 package com.up.clinicaveterinaria.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.Persistence;
+import javax.persistence.criteria.CriteriaQuery;
 
 public abstract class GenericDAO<ID, U> implements IGenericDAO<ID, U>{
 
@@ -98,5 +101,12 @@ public abstract class GenericDAO<ID, U> implements IGenericDAO<ID, U>{
 	
 	protected EntityManager getEntityManager(){
 		return em;
+	}
+	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public List<U> findAll() {
+		CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
+		cq.select(cq.from(entityClass));
+		return em.createQuery(cq).getResultList();
 	}
 }
