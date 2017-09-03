@@ -9,6 +9,10 @@ xmlns:p="http://primefaces.org/ui">
 <ui:composition template="/pages/protected/template.xhtml">
 <ui:define name="main">
 <h:form id="formAnimais">
+
+<h1><h:outputText value="#{bundle.viewCadastroAnimais}"/></h1>
+<br />
+
 <div>
 <p:dataTable var="animal" value="#{cadastroAnimaisMB.animais}">
 	<p:column headerText="#{bundle.lblNomeAnimal}">
@@ -20,9 +24,9 @@ xmlns:p="http://primefaces.org/ui">
     <p:column headerText="#{bundle.lblNomeEspecie}">
         <h:outputText value="#{animal.especie.nome}" />
     </p:column>
-    <p:column style="width:32px;text-align: center">
-         <p:commandButton update=":formDialog" oncomplete="PF('edicaoAnimal').show()" icon="ui-icon-pencil" title="Editar">
-            <f:setPropertyActionListener value="#{animal}" target="#{cadastroAnimaisMB.animalEdicao}" />
+    <p:column style="width:110px;text-align: center">
+         <p:commandButton update=":formDialog" oncomplete="PF('edicaoAnimal').show()" icon="ui-icon-pencil" title="Editar" >
+            <f:setPropertyActionListener value="#{animal}" target="#{cadastroAnimaisMB.animalEdicao}"/>
         </p:commandButton>
     </p:column>
 </p:dataTable>

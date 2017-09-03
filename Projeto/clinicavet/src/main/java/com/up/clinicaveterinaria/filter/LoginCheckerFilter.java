@@ -27,6 +27,10 @@ public class LoginCheckerFilter extends AbstractFilter implements Filter {
 			//os recursos geralmente ficam dentro de WebContent/resources/
 			//Exemplo: WebContent/resources/images/layout/logo.png
 			//allowedURIs.add("/clinicavet/javax.faces.resource/layout/logo.png.xhtml");
+			
+			allowedURIs.add("/clinicavet/javax.faces.resource/watermark/watermark.css.xhtml");
+			allowedURIs.add("/clinicavet/javax.faces.resource/watermark/watermark.js.xhtml");
+			allowedURIs.add("/clinicavet/javax.faces.resource/logo.jpg.xhtml");
 		}
 	}
 

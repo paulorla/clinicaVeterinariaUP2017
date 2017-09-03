@@ -1,0 +1,293 @@
+@charset "UTF-8";
+/*
+
+//////////////////////////////
+
+Formatação geral da página
+
+///////////////////////////////
+
+*/
+body, html {
+  font-family: 'Lato', sans-serif !important;
+  height: 100% !important; }
+
+.mb-40 {
+  margin-bottom: 40px; }
+
+.mb-20 {
+  margin-bottom: 20px; }
+
+.txt--center {
+  text-align: center; }
+
+.altura--100 {
+  height: 100% !important; }
+
+.box--shadown {
+  -webkit-box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1); }
+
+.container-fluid--nopadding {
+  padding: 0; }
+
+/*
+
+//////////////////////////////
+
+Criação dos componetes/layouts da página
+
+///////////////////////////////
+
+*/
+/*
+
+//////////////////////////////
+
+Estilos de alertas, sticks, etc..
+
+///////////////////////////////
+
+*/
+.ui-state-highlight {
+  text-shadow: none;
+  background: none; }
+
+.ui-growl-item-container {
+  background-color: #f6821f;
+  border-color: #9ccc65;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  border: none !important; }
+
+.ui-growl-title {
+  font-size: 16px;
+  font-weight: bold; }
+
+.ui-growl-message {
+  font-size: 14px; }
+
+/*
+
+//////////////////////////////
+
+Estilos de formulários.
+1. Inputs
+2. Txt Area
+3. Selects
+(..)
+
+///////////////////////////////
+
+*/
+.login__img {
+  width: 300px;
+  text-align: center; }
+
+.login__title {
+  font-size: 35px;
+  text-align: center; }
+
+.login__form {
+  padding: 20px 20px !important;
+  width: 100%;
+  border-radius: 5px;
+  background-color: #f4f4f4;
+  border: 1px solid #f2f2f2;
+  text-align: center; }
+
+input[type="text"] {
+  padding: 4px 10px;
+  height: 45px;
+  font-size: 16px;
+  color: #000;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  border-radius: 3px;
+  margin-bottom: 10px; }
+  input[type="text"]:focus {
+    -webkit-box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1); }
+
+/*
+
+//////////////////////////////
+
+Botoes da aplicacao 
+
+///////////////////////////////
+
+*/
+.ui-button {
+  background: #f6821f;
+  color: #fff;
+  font-size: 15px;
+  border: none;
+  line-height: 15px;
+  font-weight: normal;
+  padding: 7px 45px !important;
+  transition: all 1s; }
+  .ui-button:hover {
+    background-color: #ff9d4a;
+    border: none;
+    box-shadow: none !important; }
+
+/*
+
+//////////////////////////////
+
+Formatação do menu vertical
+
+///////////////////////////////
+
+*/
+.menu-vert {
+  background: #2A3F54; }
+
+.ui-panelmenu .ui-corner-all {
+  border-radius: 0; }
+
+.ui-panelmenu .ui-panelmenu-panel .ui-menuitem-outline, .ui-panelmenu .ui-panelmenu-panel--user .ui-menuitem-outline {
+  outline: 0; }
+
+.ui-panelmenu .ui-panelmenu-panel .ui-state-default, .ui-panelmenu .ui-panelmenu-panel--user .ui-state-default {
+  border: 0;
+  background: none;
+  text-shadow: none;
+  box-shadow: none;
+  border: 0; }
+  .ui-panelmenu .ui-panelmenu-panel .ui-state-default a, .ui-panelmenu .ui-panelmenu-panel--user .ui-state-default a {
+    text-shadow: none;
+    color: #ffffff; }
+
+.ui-panelmenu .ui-panelmenu-panel .ui-state-hover, .ui-panelmenu .ui-panelmenu-panel--user .ui-state-hover {
+  background: none;
+  text-shadow: none;
+  box-shadow: none;
+  border: 0;
+  border-radius: 0; }
+  .ui-panelmenu .ui-panelmenu-panel .ui-state-hover a, .ui-panelmenu .ui-panelmenu-panel--user .ui-state-hover a {
+    color: #ffffff; }
+    .ui-panelmenu .ui-panelmenu-panel .ui-state-hover a:hover, .ui-panelmenu .ui-panelmenu-panel--user .ui-state-hover a:hover {
+      color: #ffffff; }
+
+.ui-panelmenu .ui-panelmenu-panel .ui-state-active, .ui-panelmenu .ui-panelmenu-panel--user .ui-state-active {
+  text-shadow: rgba(0, 0, 0, 0.25) 0 -1px 0;
+  background: linear-gradient(#334556, #2C4257), #2A3F54;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 1px 0, inset rgba(255, 255, 255, 0.16) 0 1px 0;
+  color: #E7E7E7;
+  font-weight: 500;
+  border: 0; }
+  .ui-panelmenu .ui-panelmenu-panel .ui-state-active a, .ui-panelmenu .ui-panelmenu-panel--user .ui-state-active a {
+    color: #ffffff; }
+
+.ui-panelmenu .ui-panelmenu-panel .ui-panelmenu-header, .ui-panelmenu .ui-panelmenu-panel--user .ui-panelmenu-header {
+  color: #E7E7E7;
+  font-weight: 500;
+  border: 0; }
+  .ui-panelmenu .ui-panelmenu-panel .ui-panelmenu-header a, .ui-panelmenu .ui-panelmenu-panel--user .ui-panelmenu-header a {
+    font-size: 12px;
+    padding: 14px 30px;
+    text-shadow: none; }
+
+.ui-panelmenu .ui-panelmenu-panel .ui-panelmenu-content, .ui-panelmenu .ui-panelmenu-panel--user .ui-panelmenu-content {
+  border: 0;
+  background: none;
+  color: #ffffff;
+  border-right: 5px solid #1ABB9C; }
+  .ui-panelmenu .ui-panelmenu-panel .ui-panelmenu-content .ui-menu-list .ui-menuitem .ui-menuitem-link, .ui-panelmenu .ui-panelmenu-panel--user .ui-panelmenu-content .ui-menu-list .ui-menuitem .ui-menuitem-link {
+    font-size: 12px;
+    line-height: 16px;
+    padding: 10px 25px;
+    color: rgba(255, 255, 255, 0.75);
+    position: relative;
+    border: none; }
+    .ui-panelmenu .ui-panelmenu-panel .ui-panelmenu-content .ui-menu-list .ui-menuitem .ui-menuitem-link:before, .ui-panelmenu .ui-panelmenu-panel--user .ui-panelmenu-content .ui-menu-list .ui-menuitem .ui-menuitem-link:before {
+      background: #425668;
+      bottom: auto;
+      content: "";
+      height: 8px;
+      left: 10px;
+      margin-top: 4px;
+      position: absolute;
+      right: auto;
+      width: 8px;
+      z-index: 1;
+      border-radius: 50%; }
+    .ui-panelmenu .ui-panelmenu-panel .ui-panelmenu-content .ui-menu-list .ui-menuitem .ui-menuitem-link:after, .ui-panelmenu .ui-panelmenu-panel--user .ui-panelmenu-content .ui-menu-list .ui-menuitem .ui-menuitem-link:after {
+      border-left: 1px solid #425668;
+      bottom: 0;
+      content: "";
+      left: 14px;
+      position: absolute;
+      top: 0;
+      height: 37px; }
+  .ui-panelmenu .ui-panelmenu-panel .ui-panelmenu-content .ui-menu-list .ui-menuitem .ui-state-hover, .ui-panelmenu .ui-panelmenu-panel--user .ui-panelmenu-content .ui-menu-list .ui-menuitem .ui-state-hover {
+    text-shadow: none;
+    background: rgba(255, 255, 255, 0.05);
+    width: 100%;
+    color: rgba(255, 255, 255, 0.75) !important;
+    box-shadow: none; }
+
+.ui-panelmenu .ui-panelmenu-panel--user {
+  background: #EDEDED;
+  border-bottom: 1px solid #D9DEE4; }
+  .ui-panelmenu .ui-panelmenu-panel--user .ui-panelmenu-header {
+    color: #E7E7E7;
+    font-weight: 500;
+    border: 0; }
+    .ui-panelmenu .ui-panelmenu-panel--user .ui-panelmenu-header a {
+      font-size: 12px;
+      padding: 14px 40px;
+      text-shadow: none; }
+      .ui-panelmenu .ui-panelmenu-panel--user .ui-panelmenu-header a:before {
+        content: "Bem Vindo ";
+        font-size: 20px;
+        color: #9a9a9a;
+        display: block;
+        font-weight: bold; }
+    .ui-panelmenu .ui-panelmenu-panel--user .ui-panelmenu-header .ui-icon {
+      background: none;
+      font: normal normal normal 14px/1 FontAwesome;
+      text-indent: 0;
+      width: 20px;
+      height: 45px;
+      top: 25px;
+      left: 12px; }
+      .ui-panelmenu .ui-panelmenu-panel--user .ui-panelmenu-header .ui-icon:before {
+        content: "\f007";
+        font-size: 27px;
+        color: #444645; }
+  .ui-panelmenu .ui-panelmenu-panel--user .ui-state-hover {
+    background: none;
+    text-shadow: none;
+    box-shadow: none;
+    border: 0;
+    border-radius: 0; }
+    .ui-panelmenu .ui-panelmenu-panel--user .ui-state-hover a {
+      color: #000000; }
+      .ui-panelmenu .ui-panelmenu-panel--user .ui-state-hover a:hover {
+        color: #000000; }
+  .ui-panelmenu .ui-panelmenu-panel--user .ui-state-active {
+    text-shadow: rgba(0, 0, 0, 0.25) 0 -1px 0;
+    background: #fff;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 1px 0, inset rgba(255, 255, 255, 0.16) 0 1px 0;
+    color: #E7E7E7;
+    font-weight: 500;
+    border-right: 6px solid #CCC; }
+    .ui-panelmenu .ui-panelmenu-panel--user .ui-state-active a {
+      color: #000000; }
+  .ui-panelmenu .ui-panelmenu-panel--user .ui-state-default a {
+    text-shadow: none;
+    color: #000000;
+    font-weight: bold; }
+  .ui-panelmenu .ui-panelmenu-panel--user .ui-panelmenu-content {
+    border: 0;
+    background: #2A3F54;
+    color: #ffffff;
+    border-right: 6px solid #CCC; }
+
+.ui-datatable table {
+  table-layout: inherit; }

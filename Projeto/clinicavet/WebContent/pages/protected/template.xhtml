@@ -7,76 +7,56 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
 	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 	<title>Sistema de Processamento de Dados CliniVet</title>
 	<link rel="shortcut icon" type="image/x-icon"
 		href="#{resource['images:favicon.ico']}" />
-	<h:outputStylesheet library="css" name="layout.css" />
-	<h:outputScript library="javascript" name="modernizr.custom.16634.js"></h:outputScript>
+	<h:outputStylesheet library="css" name="app.css" />
+	<h:outputStylesheet library="css" name="bootstrap.min.css" />
+	<!--  <h:outputScript library="javascript" name="modernizr.custom.16634.js"></h:outputScript>  -->
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"></link>
 	<ui:insert name="scripts" />
-</h:head>
+</h:head>  
 <h:body>
-	<div id="wrapper_template">
-		<header>
-			<div>
-				<div style="float: left">
-					<h:graphicImage library="images" name="elefante.jpg" width="50"
-						height="50" alt="Logo Clinica" />
-				</div>
-				<div style="float: left">
-					<h1>SPT CliniVet</h1>
-				</div>
-			</div>
-			<br clear="all" />
-		</header>
-		<p:ajaxStatus onstart="PF('statusDialog').show();"
-			onsuccess="PF('statusDialog').hide();" />
-
-		<p:dialog modal="true" widgetVar="statusDialog" header="Aguarde..."
-			resizable="false" draggable="false" closable="false"
-			showHeader="false" width="200">
-			<div style="text-align: center">Carregando...</div>
-		</p:dialog>
-		<nav>
-			<div>
+	<div class="container-fluid container-fluid--nopadding  altura--100">
+		<p:ajaxStatus onstart="PF('statusDialog').show();" onsuccess="PF('statusDialog').hide();"/>    
+		<p:dialog modal="true" widgetVar="statusDialog" header="Aguarde..." resizable="false"
+		        draggable="false" closable="false" showHeader="false" width="200">  
+		 <div style="text-align: center">Carregando...</div> 
+		</p:dialog>  
+  
+		<div class="row no-gutters altura--100">
+ 
+			<div class="col-lg-2 menu-vert altura--100">
 				<h:form>
-					<p:menubar>
-
-						<p:submenu label="Gerencia" icon="ui-icon-document">
-							<p:menuitem value="Cadastro de Veterinários"
-								icon="ui-icon-document" />
+					<p:panelMenu> 
+						<p:submenu label="#{userMB.funcionario.nome}" styleClass="ui-panelmenu-panel--user">
+							<p:menuitem value="#{bundle.btnLogout}" action="#{userMB.logOut}"/>
+						</p:submenu>
+						<p:submenu expanded="true" label="Gerencia" icon="ui-icon-document">  
+							<p:menuitem value="Cadastro de Veterinários" />
 							<p:menuitem value="Cadastro de Outros Funcionários" />
 						</p:submenu>
-
+	
 						<p:submenu label="#{bundle.menuClientes}" icon="ui-icon-document">
 							<p:menuitem value="#{bundle.menuCadastroAnimais}"
 								action="#{navegacaoMB.getVaiParaCadastroAnimais()}"
-								icon="ui-icon-document" />
-							<p:menuitem value="Consultas do Dia" icon="ui-icon-contact" />
+							    />
+							<p:menuitem value="Consultas do Dia"  />
 						</p:submenu>
-
-						<f:facet name="options">
-							<div
-								style="float: left; line-height: 0.8 ! important; margin-top: 3px;">
-								<h:outputText value="Usuário:"
-									style="margin-right:5px; font-size:10px; font-style:italic;" />
-								<br />
-								<h:outputText value="#{userMB.funcionario.nome}"
-									style="margin-right:10px; font-size:10px; font-weight:bold;" />
-								<p:commandButton value="#{bundle.btnLogout}"
-									action="#{userMB.logOut}" icon="ui-icon-extlink" ajax="false" />
-							</div>
-						</f:facet>
-					</p:menubar>
-				</h:form>
+					</p:panelMenu>
+				</h:form> 
 			</div>
-		</nav>
-		<div id="main">
-			<div>
-				<div>
-					<ui:insert name="main" />
+
+			<div class="col-lg-10">
+				<div class="row no-gutters justify-content-md-center" >
+					<div class="col-lg-11" id="main">
+						<ui:insert name="main" />
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+	  
 </h:body>
 </html>
