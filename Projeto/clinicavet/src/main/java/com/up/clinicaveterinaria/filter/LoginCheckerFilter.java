@@ -22,15 +22,18 @@ public class LoginCheckerFilter extends AbstractFilter implements Filter {
 		if(allowedURIs == null){
 			allowedURIs = new HashSet<String>();
 			allowedURIs.add(fConfig.getInitParameter("loginActionURI"));
-
-			//colocamos nessa lista os recursos de acesso permitido
-			//os recursos geralmente ficam dentro de WebContent/resources/
-			//Exemplo: WebContent/resources/images/layout/logo.png
-			//allowedURIs.add("/clinicavet/javax.faces.resource/layout/logo.png.xhtml");
 			
-			allowedURIs.add("/clinicavet/javax.faces.resource/watermark/watermark.css.xhtml");
-			allowedURIs.add("/clinicavet/javax.faces.resource/watermark/watermark.js.xhtml");
-			allowedURIs.add("/clinicavet/javax.faces.resource/logo.jpg.xhtml");
+			allowedURIs.add("/javax.faces.resource/watermark/watermark.css.xhtml");
+			allowedURIs.add("/javax.faces.resource/watermark/watermark.js.xhtml");
+			allowedURIs.add("/javax.faces.resource/logo.jpg.xhtml");
+			allowedURIs.add("/javax.faces.resource/app.css.xhtml");
+			allowedURIs.add("/javax.faces.resource/font-awasome.css.xhtml");
+			allowedURIs.add("/javax.faces.resource/theme.css.xhtml");
+			allowedURIs.add("/javax.faces.resource/jquery/jquery.js.xhtml");
+			allowedURIs.add("/javax.faces.resource/core.js.xhtml");
+			allowedURIs.add("/javax.faces.resource/jquery/jquery-plugins.js.xhtml");
+			allowedURIs.add("/javax.faces.resource/components.css.xhtml");
+			allowedURIs.add("/javax.faces.resource/components.js.xhtml");
 		}
 	}
 
@@ -48,7 +51,7 @@ public class LoginCheckerFilter extends AbstractFilter implements Filter {
 		}
 		Funcionario func = (Funcionario) session.getAttribute("user");
 
-		if (func == null && !allowedURIs.contains(req.getRequestURI())) {
+		if (func == null && !allowedURIs.contains(req.getServletPath())) {
 			doLogin(request, response, req);
 			return;
 		}

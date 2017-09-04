@@ -11,11 +11,9 @@
 	<title>Sistema de Processamento de Dados CliniVet</title>
 	<link rel="shortcut icon" type="image/x-icon"
 		href="#{resource['images:favicon.ico']}" />
-	<h:outputStylesheet library="css" name="app.css" />
-	<h:outputStylesheet library="css" name="bootstrap.min.css" />
-	<!--  <h:outputScript library="javascript" name="modernizr.custom.16634.js"></h:outputScript>  -->
-	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"></link>
 	<ui:insert name="scripts" />
+	<h:outputStylesheet library="css" name="app.css" />
+	<h:outputStylesheet library="css" name="fontawasome.css" />
 </h:head>  
 <h:body>
 	<div class="container-fluid container-fluid--nopadding  altura--100">
@@ -30,13 +28,15 @@
 			<div class="col-lg-2 menu-vert altura--100">
 				<h:form>
 					<p:panelMenu> 
-						<p:submenu label="#{userMB.funcionario.nome}" styleClass="ui-panelmenu-panel--user">
-							<p:menuitem value="#{bundle.btnLogout}" action="#{userMB.logOut}"/>
+						<p:submenu label="#{userMB.funcionario.nome}" styleClass="ui-panelmenu-panel--user ">
+							<p:menuitem value="#{bundle.btnLogout}"
+								action="#{userMB.logOut}" 
+							    />
 						</p:submenu>
 						<p:submenu expanded="true" label="Gerencia" icon="ui-icon-document">  
 							<p:menuitem value="Cadastro de Veterinários" />
 							<p:menuitem value="Cadastro de Outros Funcionários" />
-						</p:submenu>
+						</p:submenu> 
 	
 						<p:submenu label="#{bundle.menuClientes}" icon="ui-icon-document">
 							<p:menuitem value="#{bundle.menuCadastroAnimais}"
