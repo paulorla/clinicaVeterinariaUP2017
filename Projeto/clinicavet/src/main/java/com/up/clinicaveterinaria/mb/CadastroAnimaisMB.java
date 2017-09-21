@@ -3,21 +3,37 @@ package com.up.clinicaveterinaria.mb;
 import java.util.List;
 
 import com.up.clinicaveterinaria.facade.AnimalFacade;
+import com.up.clinicaveterinaria.facade.DonoFacade;
 import com.up.clinicaveterinaria.model.Animal;
+import com.up.clinicaveterinaria.model.Dono;
 
 public class CadastroAnimaisMB {
 
 	private AnimalFacade animalFacade = new AnimalFacade();
 	private List<Animal> animais;
+	private List<Dono> donosPossiveis;
 	
 	private Animal animalEdicao;
 
 	public CadastroAnimaisMB() {
 		this.carregarListaAnimais();
+		this.carregarListaDonos();
 	}
 
-	public void carregarListaAnimais() {
+	private void carregarListaAnimais() {
 		animais = animalFacade.listAll();
+	}
+	
+	private void carregarListaDonos() {
+		donosPossiveis = (new DonoFacade()).listAll();
+	}
+
+	public List<Dono> getDonosPossiveis() {
+		return donosPossiveis;
+	}
+
+	public void setDonosPossiveis(List<Dono> donosPossiveis) {
+		this.donosPossiveis = donosPossiveis;
 	}
 
 	public AnimalFacade getAnimalFacade() {
@@ -42,6 +58,11 @@ public class CadastroAnimaisMB {
 
 	public void setAnimais(List<Animal> animais) {
 		this.animais = animais;
+	}
+	
+	public void excluiirAnimal() {
+		System.out.println("ANIMAL EXCLUÌDO!");
+		//TODO: Implementar
 	}
 	
 	public void salvarAlteracoesAnimal() {

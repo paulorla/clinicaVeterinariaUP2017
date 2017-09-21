@@ -44,6 +44,14 @@
 		<managed-bean-scope>view</managed-bean-scope>
 	</managed-bean>
 	<!-- Fim ManagedBeans -->
+	
+	<!-- Converters -->
+	 <converter>
+	    <converter-for-class>com.up.clinicaveterinaria.model.Dono</converter-for-class>
+	    <converter-class>com.up.clinicaveterinaria.converter.DonoConverter</converter-class>
+	 </converter>
+	 <!-- Fim Converters -->
+	
 	<!-- Regras de Navegação -->
 	<navigation-rule>
 		<from-view-id>*</from-view-id>
