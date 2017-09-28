@@ -1,7 +1,10 @@
 package com.up.clinicaveterinaria.dao;
 
+import java.util.List;
+
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
 import com.up.clinicaveterinaria.model.Funcionario;
 
@@ -20,5 +23,13 @@ public class FuncionarioDAO extends GenericDAO<Long, Funcionario>{
 		}catch (NoResultException ex) {
 			return null;
 		}
+	}
+	
+	public List<Funcionario> listarByTipo(String strCodigoTipoFunc){
+		TypedQuery<Funcionario> query = super.getEntityManager()
+				.createNamedQuery("Funcionario.listarByTipo", Funcionario.class);
+		query.setParameter("strCodigo", strCodigoTipoFunc);
+		
+		return query.getResultList();
 	}
 }

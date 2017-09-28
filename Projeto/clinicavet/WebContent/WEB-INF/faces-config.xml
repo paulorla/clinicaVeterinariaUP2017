@@ -43,12 +43,21 @@
 		<managed-bean-class>com.up.clinicaveterinaria.mb.CadastroAnimaisMB</managed-bean-class>
 		<managed-bean-scope>view</managed-bean-scope>
 	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>consultasMB</managed-bean-name>
+		<managed-bean-class>com.up.clinicaveterinaria.mb.ConsultasMB</managed-bean-class>
+		<managed-bean-scope>view</managed-bean-scope>
+	</managed-bean>
 	<!-- Fim ManagedBeans -->
 	
 	<!-- Converters -->
 	 <converter>
 	    <converter-for-class>com.up.clinicaveterinaria.model.Dono</converter-for-class>
 	    <converter-class>com.up.clinicaveterinaria.converter.DonoConverter</converter-class>
+	 </converter>
+	 <converter>
+	    <converter-for-class>com.up.clinicaveterinaria.model.Funcionario</converter-for-class>
+	    <converter-class>com.up.clinicaveterinaria.converter.FuncionarioConverter</converter-class>
 	 </converter>
 	 <!-- Fim Converters -->
 	
@@ -63,6 +72,11 @@
 		<navigation-case>
 			<from-outcome>cadastroAnimais</from-outcome>
 			<to-view-id>/pages/protected/cadastroAnimais.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>consultas</from-outcome>
+			<to-view-id>/pages/protected/consultas.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 	</navigation-rule>
