@@ -18,10 +18,20 @@ xmlns:p="http://primefaces.org/ui">
 	<f:selectItem itemValue="" itemLabel="#{bundle.lblSelecinarUmItem}" />
     <f:selectItems value="#{consultasMB.veterinarios}" var="vet" itemLabel="#{vet.nome} #{vet.cpf}" itemValue="#{vet}"/>  
 </h:selectOneMenu>
+<p:inputMask id="diaConsultas" mask="99/99/9999" 
+		value="#{consultasMB.diaConsultas}" label="#{bundle.lblDiaConsultasExibidas}" 
+		style="width:120px;margin-left: 30px" required="true">
+			<f:convertDateTime pattern="dd/MM/yyyy" />
+</p:inputMask>
 
-<p:commandButton value="#{bundle.btnOk}" style="margin-left: 5px" update="lblVetSelecionado"/>    
+<p:commandButton value="#{bundle.btnOk}" style="margin-left: 5px" update="dadosConsultas"/>    
 <br />
-<h:outputLabel value="Selecionado: #{consultasMB.veterinarioSelecionado.nome}" id="lblVetSelecionado"/>
+<br />
+<h:panelGroup id="dadosConsultas">
+<h:panelGroup rendered="#{consultasMB.veterinarioSelecionado != null }" id="grupoConsultas">
+	<h:outputLabel value="Selecionado: #{consultasMB.veterinarioSelecionado.nome}" id="lblVetSelecionado"/>
+</h:panelGroup>
+</h:panelGroup>
 
 </div>
 </h:form>
