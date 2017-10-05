@@ -35,7 +35,7 @@ public class GenericFacade <ID, U, DAO extends IGenericDAO<ID, U>> implements IG
 		} catch (Exception e) {
 			if (dao.isTransactionActive())
 				dao.rollbackAndCloseTransaction();
-			throw new Exception(e);
+			throw e;
 		}
 	}
 

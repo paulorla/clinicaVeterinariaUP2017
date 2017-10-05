@@ -73,8 +73,8 @@ xmlns:p="http://primefaces.org/ui">
 	    </div>
 	    <br />
 	    <div style="float: right;">
-		    <p:commandButton value="#{bundle.btnOk}" action="#{cadastroAnimaisMB.excluiirAnimal}" 
-		    	oncomplete="PF('dialogExcluirAnimal').hide(); " icon="ui-icon-check" process="@this"/>
+		    <p:commandButton value="#{bundle.btnOk}" action="#{cadastroAnimaisMB.excluirAnimal}" 
+		    	oncomplete="PF('dialogExcluirAnimal').hide(); " icon="ui-icon-check" update=":formAnimais"/>
 	        <p:commandButton value="#{bundle.btnCancelar}" oncomplete="PF('dialogExcluirAnimal').hide();"
 	        			icon="ui-icon-cancel" style="margin-left: 5px" immediate="true"/>
 	    </div>

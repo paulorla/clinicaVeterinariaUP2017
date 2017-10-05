@@ -1,9 +1,13 @@
 package com.up.clinicaveterinaria.util;
 
 import java.util.Properties;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class PropertiesUtil {
 	private static PropertiesUtil instance = null;
+	
+	private static final Logger LOG = LoggerFactory.getLogger(PropertiesUtil.class);
 	
 	private Properties properties;
 	
@@ -12,7 +16,7 @@ public class PropertiesUtil {
 			properties = new Properties();
 			properties.load(getClass().getResourceAsStream("../../../../messages.properties"));
 		}catch(Exception e){
-			e.printStackTrace();//logar
+			LOG.error(e.getMessage(), e);
 		}
 	}
 

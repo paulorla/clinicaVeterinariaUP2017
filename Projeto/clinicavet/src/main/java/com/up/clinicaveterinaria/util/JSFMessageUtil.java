@@ -5,9 +5,13 @@ import javax.faces.application.FacesMessage.Severity;
 import javax.faces.context.FacesContext;
 
 import org.primefaces.context.RequestContext;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 public class JSFMessageUtil {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(JSFMessageUtil.class);
 	
 	private static final String CABECALHO_INFO = "Informação";
 	private static final String CABECALHO_AVISO = "Aviso";
@@ -35,6 +39,16 @@ public class JSFMessageUtil {
 		addMessageToJsfContext(facesMessage);
 	}
 
+	public static void sendErrorMessageToUser(String message, Throwable exception) {
+		LOG.error(message, exception);
+
+		FacesMessage facesMessage = createMessage(FacesMessage.SEVERITY_ERROR, 		PropertiesUtil.getInstance().get("msgCabecalhoErro") , message);
+		RequestContext context = RequestContext.getCurrentInstance();
+		context.addCallbackParam("erroRequest", true);
+
+		addMessageToJsfContext(facesMessage);
+	}
+	
 	private static FacesMessage createMessage(Severity severity, String sumario, String mensagemErro) {
 		return new FacesMessage(severity, sumario, mensagemErro);
 	}

@@ -6,6 +6,8 @@ import com.up.clinicaveterinaria.facade.AnimalFacade;
 import com.up.clinicaveterinaria.facade.DonoFacade;
 import com.up.clinicaveterinaria.model.Animal;
 import com.up.clinicaveterinaria.model.Dono;
+import com.up.clinicaveterinaria.util.JSFMessageUtil;
+import com.up.clinicaveterinaria.util.PropertiesUtil;
 
 public class CadastroAnimaisMB {
 
@@ -60,9 +62,14 @@ public class CadastroAnimaisMB {
 		this.animais = animais;
 	}
 	
-	public void excluiirAnimal() {
-		System.out.println("ANIMAL EXCLUÌDO!");
-		//TODO: Implementar
+	public void excluirAnimal() {
+		try {
+			animalFacade.delete(animalEdicao.getId());
+			this.carregarListaAnimais();
+		}catch(Exception e) {
+			JSFMessageUtil.sendErrorMessageToUser
+				(PropertiesUtil.getInstance().get("msgFalhaExcluirAnimal"), e);
+		}
 	}
 	
 	public void salvarAlteracoesAnimal() {
