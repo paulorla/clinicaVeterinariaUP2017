@@ -48,6 +48,11 @@
 		<managed-bean-class>com.up.clinicaveterinaria.mb.ConsultasMB</managed-bean-class>
 		<managed-bean-scope>view</managed-bean-scope>
 	</managed-bean>
+		<managed-bean>
+		<managed-bean-name>reportsMB</managed-bean-name>
+		<managed-bean-class>com.up.clinicaveterinaria.mb.ReportsMB</managed-bean-class>
+		<managed-bean-scope>view</managed-bean-scope>
+	</managed-bean>
 	<!-- Fim ManagedBeans -->
 	
 	<!-- Converters -->
@@ -79,6 +84,13 @@
 			<to-view-id>/pages/protected/consultas.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
+		<navigation-case>
+			<from-outcome>relatorios</from-outcome>
+			<to-view-id>/pages/protected/relatorios.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		
+		
 	</navigation-rule>
 	<!-- Fim Regras de Navegação -->
 

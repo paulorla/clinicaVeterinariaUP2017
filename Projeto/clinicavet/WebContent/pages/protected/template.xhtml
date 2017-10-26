@@ -37,12 +37,13 @@
 						<p:submenu expanded="true" label="Gerencia" icon="ui-icon-document">  
 							<p:menuitem value="Cadastro de Veterinários" />
 							<p:menuitem value="Cadastro de Outros Funcionários" />
+							<p:menuitem value="Relatórios"
+								action="#{navegacaoMB.getVaiParaRelatorios()}"/>
 						</p:submenu> 
 	
 						<p:submenu label="#{bundle.menuClientes}" icon="ui-icon-document">
 							<p:menuitem value="#{bundle.menuCadastroAnimais}"
-								action="#{navegacaoMB.getVaiParaCadastroAnimais()}"
-							    />
+								action="#{navegacaoMB.getVaiParaCadastroAnimais()}"/>
 							<p:menuitem value="#{bundle.menuConsultas}" action="#{navegacaoMB.getVaiParaConsultas()}" />
 						</p:submenu>
 					</p:panelMenu>
