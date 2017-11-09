@@ -39,6 +39,17 @@
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
+<Column name="Senha" id="BEABEEB8-E558-F0B2-D274-27AB6EC69B55">
+<createdBy>paulo</createdBy>
+<createdTime>2017-11-03 18:18:47 UTC</createdTime>
+<ownerDesignName>ModeloClinicaVet1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>43</dataTypeSize>
+<ownDataTypeParameters>43,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
 <Column name="NASCIMENTO" id="9859DBF8-E026-AACB-564D-F78F61F4D25D">
 <createdBy>paulo</createdBy>
 <createdTime>2017-03-22 13:52:32 UTC</createdTime>
